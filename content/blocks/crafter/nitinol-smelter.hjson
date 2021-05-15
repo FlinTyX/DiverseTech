@@ -6,3 +6,29 @@ health: 400
 size: 2
 hasItems: true
 hasLiquids: false
+hasPower: true
+itemCapacity: 6
+
+craftTime: 85
+craftEffect: smeltsmoke
+ambientSound: machine
+ambientSoundVolume: 0.3
+
+consumes: {
+  power: 0.9
+  items: {
+    items: [
+      titanium/2
+      nickel/2
+    ]
+  }
+}
+
+requirements: [
+  copper/200
+  lead/190
+  graphite/42
+]
+
+category: crafting
+research: start
