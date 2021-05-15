@@ -1,0 +1,8 @@
+type: GenericSmelter
+name: Nitinol Smelter
+description: Fuses Nickel and Titanium to create a malleable and resistant alloy.
+
+health: 400
+size: 2
+hasItems: true
+hasLiquids: false
