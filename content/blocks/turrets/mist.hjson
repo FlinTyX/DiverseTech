@@ -1,0 +1,29 @@
+localizedName: Mist
+description: A
+
+hasItems: false
+hasPower: true
+hasLiquids: true
+health: 4000
+targetGround: true
+targetAir: true
+
+consumes: {
+  power: 8.1
+  liquid: {
+    liquid: cryofluid
+    amount: 1.1
+    booster: true
+    optional: true  
+  }
+}
+
+requirements: [
+  copper/800
+  metaglass/200
+  nitinol/500
+  silicon/300
+]
+
+category: turret
+research: start
