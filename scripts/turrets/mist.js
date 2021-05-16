@@ -1,4 +1,3 @@
-const range = 400;
 
 //status effect Fx
 const iceFx = new Effect(35, e => {
@@ -78,7 +77,7 @@ ice.effect = iceFx;
 //bullet
 const mBullet = extend(PointBulletType, {
   damage: 500,
-  speed: range,
+  speed: 400,
   status: ice,
   statusDuration: 60 * 8,
   buildingDamageMultiplier: 0.6,
@@ -97,7 +96,7 @@ const mist = extend(ItemTurret, "mist", {
   shootShake: 6,
   shootEffect: Fx.smoke,
   chargeEffect: cFx,
-  range: range,
+  range: 400,
   shootCone: 2,
   reloadTime: 200,
   recoilAmount: 2,
