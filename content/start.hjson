@@ -1,3 +1,4 @@
 name: Start
 description: Separated Tech Tree for DiverseTech mod.
 buildVilisibility: debugOnly
+research: core-shard
