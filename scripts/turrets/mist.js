@@ -82,6 +82,7 @@ const mBullet = extend(PointBulletType, {
   trailSpacing: 20,
   damage: 500,
   speed: 400,
+  status: ice,
   statusDuration: 100,
   hitShake: 6
 });
