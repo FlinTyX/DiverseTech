@@ -13,4 +13,11 @@ const craftFx = new Effect(30, e => {
 const fuMachine = extend(GenericCrafter, "fusion-machine", {});
 fuMachine.craftEffect = craftFx;
 
-fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {});
+fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {
+  updateTile(){
+    this.super$updateTile();
+    if (this.progress >= 1){
+      Effects.shake(this.x, this.y, 100, 1000);
+    }
+  }
+});
