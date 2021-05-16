@@ -4,8 +4,8 @@ const craftFx = new Effect(30, e => {
   
   let h = e.finpow() * 22;
   let w = e.fout() * 10;
-  Drawf.tri(i == 0 ? e.x + 9 : e.x - 9, e.y, w, h, i == 0 ? 0 : 180);
-  Drawf.tri(e.x, i == 0 ? e.y - 9 : e.y + 9, w, h, i == 0 ? -90 : 90);
+  Drawf.tri(i == 0 ? e.x + 7 : e.x - 7, e.y, w, h, i == 0 ? 0 : 180);
+  Drawf.tri(e.x, i == 0 ? e.y - 7 : e.y + 7, w, h, i == 0 ? -90 : 90);
   }
 });
 
