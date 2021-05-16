@@ -13,11 +13,4 @@ const craftFx = new Effect(30, e => {
 const fuMachine = extend(GenericCrafter, "fusion-machine", {});
 fuMachine.craftEffect = craftFx;
 
-fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {
-  updateTile(){
-    this.super$updateTile();
-    if (this.totalProgress >= 1){
-      Fx.massiveExplosion.at(this.x, this.y);
-    }
-  }
-});
+fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {});
