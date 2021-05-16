@@ -6,7 +6,7 @@ health: 400
 size: 3
 craftTime: 95
 updateEffect: steam
-updateEffectChance: 0.4
+updateEffectChance: 0.01
 ambientSound: machine
 ambientSoundVolume: 0.3
 hasItems: true
