@@ -6,8 +6,9 @@ health: 400
 size: 3
 craftTime: 95
 updateEffect: steam
+updateEffectChance: 0.4
 ambientSound: machine
-ambientSoundVolume: 0.4
+ambientSoundVolume: 0.3
 hasItems: true
 hasPower: true
 hasLiquids: false
