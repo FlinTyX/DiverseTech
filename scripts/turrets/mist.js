@@ -103,7 +103,6 @@ const mist = extend(PowerTurret, "mist", {
   recoilAmount: 2,
   restitution: 0.01,
   cooldown: 0.01,
-  size: 3,
   coolantMultiplier: 2.5,
   shootSound: Sounds.railgun,
   shots: 1,
