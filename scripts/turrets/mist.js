@@ -65,9 +65,7 @@ const sFx = new Effect(40, e => {
 
 
 //status effect
-const ice = extend(StatusEffect, "ice", {
-  
-});
+const ice = extend(StatusEffect, "ice", {});
 
 ice.damage = 0.2;
 ice.speedMultiplier = 0.05;
@@ -76,35 +74,29 @@ ice.effect = iceFx;
 
 //bullet
 const mBullet = extend(PointBulletType, {
-  damage: 500,
-  speed: 400,
-  status: ice,
-  statusDuration: 60 * 8,
-  buildingDamageMultiplier: 0.6,
-  shootEffect: sFx,
-  despawnEffect: Fx.none,
   hitEffect: hFx,
   trailEffect: Fx.none,
-  trailSpacing: 15,
+  shootEffect: sFx,
+  despawnEffect: Fx.none,
+  smokeEffect: Fx.smokeCloud,
+  trailSpacing: 20,
+  damage: 500,
+  speed: 400,
   hitShake: 6
 });
 
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  shootShake: 6,
-  chargeTime: -0.8,
   chargeEffect: cFx,
-  range: 400,
-  shootCone: 2,
-  reloadTime: 200,
-  recoilAmount: 2,
-  restitution: 0.01,
-  cooldown: 0.01,
-  coolantMultiplier: 2.5,
-  shootSound: Sounds.railgun,
   shots: 1,
-  rotateSpeed: 4.5
+  shootCone: 1,
+  reloadTime: 180,
+  rotateSpeed: 2,
+  shootShake: 6,
+  recoilAmount: 5,
+  restitution: 0.009,
+  cooldown: 0.009
 });
 
 mist.buildType = () => extend(PowerTurret.PowerTurretBuild, mist, {});
