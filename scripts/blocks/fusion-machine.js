@@ -10,8 +10,7 @@ const craftFx = new Effect(30, e => {
 }
 
 //it means fusion machine and not f*ck machine
-const fuMachine = extend(GenericCrafter, "fusion-machine", {
-  craftEffect: craftFx
-});
+const fuMachine = extend(GenericCrafter, "fusion-machine", {});
+fuMachine.craftEffect = craftFx;
 
 fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {});
