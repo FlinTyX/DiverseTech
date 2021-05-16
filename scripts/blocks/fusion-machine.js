@@ -17,7 +17,7 @@ fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine
   updateTile(){
     this.super$updateTile();
     if (this.progress >= 1){
-      Effects.shake(this.x, this.y, 100, 1000);
+      Effects.shake(8, 12, this.x, this.x);
     }
   }
 });
