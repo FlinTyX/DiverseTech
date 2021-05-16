@@ -10,4 +10,4 @@ const craftFx = new Effect(40, e => {
 const quantumFo = extend(GenericCrafter, "quantum-former", {});
 quantumFo.craftEffect = craftFx;
 
-quantumFo.buildType = () => etend(GenericCrafter.GenericCrafterBuild, quantumFo, {});
+quantumFo.buildType = () => extend(GenericCrafter.GenericCrafterBuild, quantumFo, {});
