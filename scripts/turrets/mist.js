@@ -95,7 +95,7 @@ const mist = extend(PowerTurret, "mist", {
   chargeEffect: cFx,
   shots: 1,
   shootCone: 1,
-  reloadTime: 280,
+  reloadTime: 220,
   rotateSpeed: 2,
   shootShake: 6,
   recoilAmount: 5,
