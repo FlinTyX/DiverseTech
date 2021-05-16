@@ -68,7 +68,7 @@ const sFx = new Effect(40, e => {
 const ice = extend(StatusEffect, "ice", {});
 
 ice.damage = 0.2;
-ice.speedMultiplier = 0.05;
+ice.speedMultiplier = 0.2;
 ice.color = Color.white;
 ice.effect = iceFx;
 
@@ -82,23 +82,26 @@ const mBullet = extend(PointBulletType, {
   trailSpacing: 20,
   damage: 500,
   speed: 400,
+  statusDuration: 100,
   hitShake: 6
 });
 
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  range: 180,
+  chargeEffects: 1,
+  range: 170,
   chargeTime: -1,
   chargeEffect: cFx,
   shots: 1,
   shootCone: 1,
-  reloadTime: 180,
+  reloadTime: 280,
   rotateSpeed: 2,
   shootShake: 6,
   recoilAmount: 5,
+  coolantMultiplier: 1.2,
   restitution: 0.009,
-  cooldown: 0.009
+  cooldown: 0.09
 });
 
 mist.buildType = () => extend(PowerTurret.PowerTurretBuild, mist, {});
