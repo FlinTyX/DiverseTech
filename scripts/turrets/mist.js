@@ -92,7 +92,7 @@ const mBullet = extend(PointBulletType, {
 });
 
 //turret
-const mist = extend(PowerTurret, "mist", {
+const mist = extend(ItemTurret, "mist", {
   shootType: mBullet,
   shootShake: 6,
   shootEffect: Fx.smoke,
@@ -109,4 +109,4 @@ const mist = extend(PowerTurret, "mist", {
   rotateSpeed: 4.5
 });
 
-mist.buildType = () => extend(PowerTurret.PowerTurretBuild, mist, {});
+mist.buildType = () => extend(ItemTurret.ItemTurretBuild, mist, {});
