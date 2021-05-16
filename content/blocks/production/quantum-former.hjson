@@ -1,5 +1,5 @@
 type: GenericCrafter
-name Quantum Former
+name: Quantum Former
 description: It makes Nickel appear in your conveyor.
 
 health: 400
