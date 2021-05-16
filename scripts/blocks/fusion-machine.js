@@ -8,7 +8,10 @@ const craftFx = new Effect(30, e => {
   Drawf.tri(e.x, i == 0 ? e.y - 9 : e.y + 9, w, h, i == 0 ? -90 : 90);
   }
 }
-                           
+
+//it means fusion machine and not f*ck machine
 const fuMachine = extend(GenericCrafter, "fusion-machine", {
   craftEffect: craftFx
 });
+
+fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {});
