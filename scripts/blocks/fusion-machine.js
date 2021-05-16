@@ -16,7 +16,7 @@ fuMachine.craftEffect = craftFx;
 fuMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fuMachine, {
   updateTile(){
     this.super$updateTile();
-    if (this.progress >= 1){
+    if (this.block.progress >= 1){
       Fx.massiveExplosion.at(this.x, this.y);
     }
   }
