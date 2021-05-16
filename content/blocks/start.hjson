@@ -1,0 +1,5 @@
+buildVisibility: debugOnly
+name: Start
+description: Separated Tech Tree to DiverseTech mod.
+inEditor: false
+research: core-shard
