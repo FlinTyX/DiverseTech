@@ -93,6 +93,7 @@ const mBullet = extend(PointBulletType, {
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
   shootShake: 6,
+  chargeTime: -0.8,
   chargeEffect: cFx,
   range: 400,
   shootCone: 2,
