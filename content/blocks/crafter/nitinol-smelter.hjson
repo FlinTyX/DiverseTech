@@ -18,7 +18,7 @@ consumes: {
   power: 0.9
   items: {
     items: [
-      titanium/2
+      titanium/1
       nickel/2
     ]
   }
@@ -30,5 +30,6 @@ requirements: [
   graphite/42
 ]
 
+outputItem: nitinol/1
 category: crafting
 research: quantum-former
