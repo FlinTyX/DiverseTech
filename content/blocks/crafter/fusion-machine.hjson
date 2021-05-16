@@ -29,6 +29,6 @@ requirements: [
   silicon/105
 ]
 
-outputItem: hyper-alloy
+outputItem: hyper-alloy/1
 category: crafting
 research: nitinol-smelter
