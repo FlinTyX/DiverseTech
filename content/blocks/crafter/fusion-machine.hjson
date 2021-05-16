@@ -1,0 +1,32 @@
+localizedName: Fusion Machine
+description: Fuses Nitinol and Steel Compound to make a reinforced alloy.
+
+health: 645
+size: 3
+hasItems: true
+hasPower: true
+hasLiquids: false
+craftTime: 100
+itemCapacity: 8
+ambientSound: machine
+ambientSoundVolume: 0.7
+
+consumes: {
+  power: 1.4
+  items: {
+    items: [
+      nitinol/1
+      steel-compound/2
+    ]
+  }
+}
+
+requirements: [
+  nickel/200
+  copper/322
+  silicon/105
+]
+
+outputItem: hyper-alloy
+category: crafting
+research: nitinol-smelter
