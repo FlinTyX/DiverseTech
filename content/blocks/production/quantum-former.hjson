@@ -1,0 +1,31 @@
+type: GenericCrafter
+name Quantum Former
+description: It makes Nickel appear in your conveyor.
+
+health: 400
+size: 3
+craftTime: 95
+updateEffect: steam
+ambientSound: machine
+ambientSoundVolume: 0.4
+hasItems: true
+hasPower: true
+hasLiquids: false
+
+consumes: {
+  power: 0.6
+  items: {
+    items: [
+      lead/3
+    ]
+  }
+}
+
+requirements: [
+  copper/285
+  lead/290
+  silicon/30
+]
+
+category: crafting
+research: start
