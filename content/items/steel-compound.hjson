@@ -1,4 +1,5 @@
 name: Steel Compound
 color: 4c523d
 cost: 2
+flammability: 0.2
 research: nickel
