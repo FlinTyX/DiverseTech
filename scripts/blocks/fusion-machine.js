@@ -1,4 +1,4 @@
-const craftFx = new Effect(30, e => {
+const craftFx = new Effect(35, e => {
   for (let i = 0; i < 2; i++){
   Draw.color(i == 0 ? Color.valueOf("f2f2f2") : Color.valueOf("ffffff"));
   
