@@ -106,4 +106,4 @@ const mist = extend(ItemTurret, "mist", {
   rotateSpeed: 4.5
 });
 
-mist.buildType = () => extend(ItemTurret.ItemTurretBuild, mist, {});
+mist.buildType = () => extend(PowerTurret.PowerTurretBuild, mist, {});
