@@ -96,6 +96,7 @@ const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
   shootShake: 6,
   shootEffect: Fx.smoke,
+  chargeEffect: cFx,
   range: range,
   shootCone: 2,
   reloadTime: 200,
