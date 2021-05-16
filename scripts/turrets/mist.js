@@ -84,7 +84,6 @@ const mBullet = extend(PointBulletType, {
   shootEffect: sFx,
   despawnEffect: Fx.none,
   hitEffect: hFx,
-  shootEffect: sFx,
   trailEffect: Fx.none,
   trailSpacing: 15,
   hitShake: 6
@@ -94,7 +93,6 @@ const mBullet = extend(PointBulletType, {
 const mist = extend(ItemTurret, "mist", {
   shootType: mBullet,
   shootShake: 6,
-  shootEffect: Fx.smoke,
   chargeEffect: cFx,
   range: 400,
   shootCone: 2,
