@@ -1,7 +1,8 @@
-type: GenericCrafter
-name: Quantum Former
+localizeName: Quantum Former
 description: It makes Nickel appear in your conveyor.
 
+update: true
+solid: true
 health: 400
 size: 3
 craftTime: 95
