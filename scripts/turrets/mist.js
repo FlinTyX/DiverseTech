@@ -38,14 +38,14 @@ const tFx = new Effect(35, e => {
 });
 
 //charge effect
-const cFx = new Effect(80, e => {
+const cFx = new Effect(60, e => {
   Draw.color(Color.valueOf("ffffff"));
 
-  Angles.randLenVectors(e.id, 20,1 + 100 * e.fout(), (x, y) => {
+  Angles.randLenVectors(e.id, 15,1 + 100 * e.fout(), (x, y) => {
     Lines.spikes(e.x+x, e.y+y, 0.3, e.finpow() * 1.2, 8);
   });
       
-  Angles.randLenVectors(e.id + 1, 12, 5 + 100 * e.fout(), (x, y) => {
+  Angles.randLenVectors(e.id + 1, 8, 5 + 100 * e.fout(), (x, y) => {
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1 + e.fslope() * 6);
   });
   
@@ -122,7 +122,7 @@ const mist = extend(PowerTurret, "mist", {
   range: 200,
   chargeEffects: 1,
   chargeMaxDelay: 0,
-  chargeTime: 80,
+  chargeTime: 60,
   chargeEffect: cFx,
   shots: 1,
   shootCone: 2,
