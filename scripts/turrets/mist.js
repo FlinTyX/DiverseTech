@@ -110,7 +110,7 @@ const mBullet = extend(PointBulletType, {
   smokeEffect: Fx.smokeCloud,
   trailSpacing: 50,
   damage: 500,
-  speed: 400,
+  speed: 435,
   status: ice,
   statusDuration: 60 * 3,
   hitShake: 6
@@ -119,7 +119,7 @@ const mBullet = extend(PointBulletType, {
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  range: 180,
+  range: 200,
   chargeTime: -1,
   chargeEffects: 1,
   chargeEffect: cFx,
