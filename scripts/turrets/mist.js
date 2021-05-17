@@ -132,7 +132,7 @@ const mist = extend(PowerTurret, "mist", {
   recoilAmount: 5,
   coolantMultiplier: 1.1,
   restitution: 0.009,
-  cooldown: 0.09
+  cooldown: 0.03
 });
 
 mist.buildType = () => extend(PowerTurret.PowerTurretBuild, mist, {});
