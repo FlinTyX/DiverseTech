@@ -8,6 +8,18 @@ const iceFx = new Effect(35, e => {
   });
 });
 
+//despawn effect
+const dpFx = new Effect(35, e => {
+  e.rotation = e.fout() * 200;
+  Lines.stroke(e.fout() * 3.5);
+  Lines.circle(e.x, e.y, e.finpow() * 22);
+
+  for (let i = 0; i < 4; i++){
+    Draw.color(Color.valueOf("ffffff"));
+    Drawf.tri(e.x, e.y, 7, e.fout() * 55, 90 * i + e.rotation);
+  }
+});
+
 //trail effect
 const tFx = new Effect(35, e => {
   for (let i = 0; i < 2; i++){
@@ -94,7 +106,7 @@ const mBullet = extend(PointBulletType, {
   hitEffect: hFx,
   trailEffect: tFx,
   shootEffect: sFx,
-  despawnEffect: Fx.none,
+  despawnEffect: dpFx,
   smokeEffect: Fx.smokeCloud,
   trailSpacing: 17,
   damage: 500,
