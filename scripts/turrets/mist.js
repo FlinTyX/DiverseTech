@@ -8,6 +8,23 @@ const iceFx = new Effect(35, e => {
   });
 });
 
+//trail effect
+const tFx = new Effect(35, e => {
+  for (let i = 0; i < 2; i++){
+    Draw.color(i == 0 ? Color.valueOf("ffffff") : Color.valueOf("f4f4f4"));
+  
+    let m = i == 0 ? 1 : 0.5;
+
+    let s = (e.fout() * 60 + Mathf.randomSeedRange(e.id, 5));
+    let rot = e.rotation + 180;
+    let w = 10 * e.fout() * m;
+
+    Drawf.tri(e.x, e.y, w, s * m, rot + 158);
+    Drawf.tri(e.x, e.y, w, s * m, rot + 202);
+    Drawf.tri(e.x, e.y, w, e.fout() * 20 * m, rot);
+  }
+});
+
 //charge effect
 const cFx = new Effect(80, e => {
   Draw.color(Color.valueOf("ffffff"));
@@ -75,31 +92,32 @@ ice.effect = iceFx;
 //bullet
 const mBullet = extend(PointBulletType, {
   hitEffect: hFx,
-  trailEffect: Fx.none,
+  trailEffect: tFx,
   shootEffect: sFx,
   despawnEffect: Fx.none,
   smokeEffect: Fx.smokeCloud,
-  trailSpacing: 20,
+  trailSpacing: 17,
   damage: 500,
   speed: 400,
   status: ice,
-  statusDuration: 100,
+  statusDuration: 60 * 3,
   hitShake: 6
 });
 
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  range: 170,
+  range: 180,
   chargeTime: -1,
+  chargeEffects: 1,
   chargeEffect: cFx,
   shots: 1,
-  shootCone: 1,
-  reloadTime: 220,
+  shootCone: 2,
+  reloadTime: 210,
   rotateSpeed: 2,
   shootShake: 6,
   recoilAmount: 5,
-  coolantMultiplier: 1.2,
+  coolantMultiplier: 1.1,
   restitution: 0.009,
   cooldown: 0.09
 });
