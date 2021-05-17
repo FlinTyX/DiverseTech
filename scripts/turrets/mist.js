@@ -108,7 +108,7 @@ const mBullet = extend(PointBulletType, {
   shootEffect: sFx,
   despawnEffect: dpFx,
   smokeEffect: Fx.smokeCloud,
-  trailSpacing: 17,
+  trailSpacing: 30,
   damage: 500,
   speed: 400,
   status: ice,
