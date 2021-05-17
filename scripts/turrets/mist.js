@@ -27,9 +27,9 @@ const tFx = new Effect(35, e => {
   
     let m = i == 0 ? 1 : 0.5;
 
-    let s = (e.fout() * 60 + Mathf.randomSeedRange(e.id, 5));
+    let s = (e.fout() * 36 + Mathf.randomSeedRange(e.id, 5));
     let rot = e.rotation;
-    let w = 10 * e.fout() * m;
+    let w = 9 * e.fout() * m;
 
     Drawf.tri(e.x, e.y, w, s * m, rot + 158);
     Drawf.tri(e.x, e.y, w, s * m, rot + 202);
