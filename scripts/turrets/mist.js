@@ -51,7 +51,7 @@ const cFx = new Effect(35, e => {
   
   for (let i = 0; i < 2; i++){
     Draw.color(i == 0 ? Color.valueOf("ffffff") : Color.valueOf("f4f4f4"));
-    Fill.circle(e.x, e.y, i == 0 ? e.finpow() * 7 : e.finpow() * 4);
+    Fill.circle(e.x, e.y, i == 0 ? e.finpow() * 6 : e.finpow() * 4);
   }
 });
 
@@ -122,7 +122,7 @@ const mist = extend(PowerTurret, "mist", {
   range: 200,
   chargeEffects: 1,
   chargeMaxDelay: -1,
-  chargeTime: 30,
+  chargeTime: 15,
   chargeBeginEffect: cFx,
   shots: 1,
   shootCone: 2,
