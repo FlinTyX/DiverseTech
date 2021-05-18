@@ -101,12 +101,11 @@ const mBullet = extend(PointBulletType, {
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  range: 220,
+  range: 235,
   shots: 1,
-  firstShotDelay: 0,
   shootCone: 2,
   shootSound: Sounds.railgun,
-  reloadTime: 220,
+  reloadTime: 205,
   rotateSpeed: 4,
   shootShake: 6,
   recoilAmount: 5,
