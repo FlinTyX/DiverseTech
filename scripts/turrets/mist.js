@@ -76,11 +76,7 @@ const sFx = new Effect(40, e => {
 
 
 //status effect
-const ice = extend(StatusEffect, "ice", {
-  update(unit, time){
-    unit.weapon.reload = unit.weapon.reload + 200;
-  }
-});
+const ice = extend(StatusEffect, "ice", {});
 
 ice.damage = 0.2;
 ice.speedMultiplier = 0.2;
@@ -98,7 +94,7 @@ const mBullet = extend(PointBulletType, {
   damage: 55,
   speed: 455,
   status: ice,
-  statusDuration: 60 * 3.3,
+  statusDuration: 60 * 4,
   hitShake: 6
 });
 
