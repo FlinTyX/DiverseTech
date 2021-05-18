@@ -37,24 +37,6 @@ const tFx = new Effect(35, e => {
   }
 });
 
-//charge effect
-const cFx = new Effect(35, e => {
-  Draw.color(Color.valueOf("ffffff"));
-
-  Angles.randLenVectors(e.id, 15,1 + 100 * e.fout(), (x, y) => {
-    Lines.spikes(e.x+x, e.y+y, 0.3, e.finpow() * 1.2, 8);
-  });
-      
-  Angles.randLenVectors(e.id + 1, 8, 5 + 100 * e.fout(), (x, y) => {
-    Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1 + e.fslope() * 6);
-  });
-  
-  for (let i = 0; i < 2; i++){
-    Draw.color(i == 0 ? Color.valueOf("ffffff") : Color.valueOf("f4f4f4"));
-    Fill.circle(e.x, e.y, i == 0 ? e.finpow() * 6 : e.finpow() * 4);
-  }
-});
-
 //hit effect
 const hFx = new Effect(30, e => {
   for (let i = 0; i < 2; i++){
@@ -120,13 +102,8 @@ const mBullet = extend(PointBulletType, {
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
   range: 200,
-  chargeEffects: 1,
-  chargeMaxDelay: -1,
-  chargeTime: 15,
-  chargeBeginEffect: cFx,
   shots: 1,
   shootCone: 2,
-  shootLength: 2.99,
   shootSound: Sounds.railgun,
   reloadTime: 230,
   rotateSpeed: 4,
