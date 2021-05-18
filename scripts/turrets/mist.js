@@ -78,7 +78,7 @@ const sFx = new Effect(40, e => {
 //status effect
 const ice = extend(StatusEffect, "ice", {
   update(unit, time){
-    unit.weapons.shootDelay = shootDelay + 300;
+    unit.range = 0;
   }
 });
 
@@ -107,6 +107,7 @@ const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
   range: 220,
   shots: 1,
+  firstShotDelay: 0,
   shootCone: 2,
   shootSound: Sounds.railgun,
   reloadTime: 220,
