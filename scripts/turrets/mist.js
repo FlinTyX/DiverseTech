@@ -78,7 +78,7 @@ const sFx = new Effect(40, e => {
 //status effect
 const ice = extend(StatusEffect, "ice", {
   update(unit, time){
-    unit.weapons.range = 0;
+    unit.weapons.shootDelay = shootDelay + 300;
   }
 });
 
