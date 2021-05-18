@@ -76,7 +76,11 @@ const sFx = new Effect(40, e => {
 
 
 //status effect
-const ice = extend(StatusEffect, "ice", {});
+const ice = extend(StatusEffect, "ice", {
+  update(unit, time){
+    unit.weapons.range = 0;
+  }
+});
 
 ice.damage = 0.2;
 ice.speedMultiplier = 0.2;
@@ -91,21 +95,21 @@ const mBullet = extend(PointBulletType, {
   despawnEffect: dpFx,
   smokeEffect: Fx.smokeCloud,
   trailSpacing: 50,
-  damage: 500,
+  damage: 55,
   speed: 455,
   status: ice,
-  statusDuration: 60 * 3,
+  statusDuration: 60 * 3.3,
   hitShake: 6
 });
 
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  range: 200,
+  range: 220,
   shots: 1,
   shootCone: 2,
   shootSound: Sounds.railgun,
-  reloadTime: 230,
+  reloadTime: 220,
   rotateSpeed: 4,
   shootShake: 6,
   recoilAmount: 5,
