@@ -91,7 +91,7 @@ const mBullet = extend(PointBulletType, {
   despawnEffect: dpFx,
   smokeEffect: Fx.smokeCloud,
   trailSpacing: 50,
-  damage: 55,
+  damage: 545,
   speed: 455,
   status: ice,
   statusDuration: 60 * 4,
@@ -101,7 +101,7 @@ const mBullet = extend(PointBulletType, {
 //turret
 const mist = extend(PowerTurret, "mist", {
   shootType: mBullet,
-  range: 235,
+  range: 245,
   shots: 1,
   shootCone: 2,
   shootSound: Sounds.railgun,
