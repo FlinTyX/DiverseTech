@@ -38,7 +38,7 @@ const tFx = new Effect(35, e => {
 });
 
 //charge effect
-const cFx = new Effect(60, e => {
+const cFx = new Effect(40, e => {
   Draw.color(Color.valueOf("ffffff"));
 
   Angles.randLenVectors(e.id, 15,1 + 100 * e.fout(), (x, y) => {
@@ -122,7 +122,7 @@ const mist = extend(PowerTurret, "mist", {
   range: 200,
   chargeEffects: 1,
   chargeMaxDelay: 0,
-  chargeTime: 60,
+  chargeTime: 35,
   chargeBeginEffect: cFx,
   shots: 1,
   shootCone: 2,
