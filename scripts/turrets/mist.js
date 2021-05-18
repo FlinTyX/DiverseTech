@@ -110,7 +110,7 @@ const mBullet = extend(PointBulletType, {
   smokeEffect: Fx.smokeCloud,
   trailSpacing: 50,
   damage: 500,
-  speed: 435,
+  speed: 455,
   status: ice,
   statusDuration: 60 * 3,
   hitShake: 6
@@ -128,7 +128,7 @@ const mist = extend(PowerTurret, "mist", {
   shootCone: 2,
   shootLength: 2.99,
   shootSound: Sounds.railgun,
-  reloadTime: 210,
+  reloadTime: 230,
   rotateSpeed: 4,
   shootShake: 6,
   recoilAmount: 5,
