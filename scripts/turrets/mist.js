@@ -78,7 +78,7 @@ const sFx = new Effect(40, e => {
 //status effect
 const ice = extend(StatusEffect, "ice", {
   update(unit, time){
-    unit.range = 0;
+    unit.weapon.reload = unit.weapon.reload + 200;
   }
 });
 
