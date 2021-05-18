@@ -79,7 +79,7 @@ const sFx = new Effect(40, e => {
 const ice = extend(StatusEffect, "ice", {});
 
 ice.damage = 0.2;
-ice.speedMultiplier = 0.08;
+ice.speedMultiplier = 0.1;
 ice.color = Color.white;
 ice.effect = iceFx;
 
