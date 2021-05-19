@@ -1,0 +1,28 @@
+localizedName: Lotus
+description: test
+size: 4
+hasItems: false
+hasPower: true
+hasLiquids: true
+health: 4000
+targetGround: true
+targetAir: true
+update: true
+solid: true
+
+consumes: {
+  power: 7
+  liquid: {
+    liquid: cryofluid
+    amount: 2.1
+    booster: false
+    optional: false
+  }
+}
+
+requirements: [
+  copper/100
+]
+
+category: turret
+research: start
