@@ -8,7 +8,7 @@ fragB.damage = 50;
 const lBullet = extend(ArtilleryBulletType, {
   //pain
   let despawned = false;
-  let rot  0;
+  let rot = 0;
   
   despawned(b){
     despawned = true;
