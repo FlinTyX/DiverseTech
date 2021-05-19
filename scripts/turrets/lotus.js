@@ -3,7 +3,8 @@ let rot = 0;
 //tests
 const fragB = extend(ContinuousLaserBulletType, {
   update(b){
-    b.angle = b.angle++;
+    rot++;
+    b.rotation(rot);
   }
 });
 fragB.length = 150;
