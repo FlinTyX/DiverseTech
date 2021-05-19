@@ -1,7 +1,11 @@
 let rot = 0;
 
 //tests
-const fragB = extend(ContinuousLaserBulletType, {});
+const fragB = extend(ContinuousLaserBulletType, {
+  update(b){
+    b.rotation() = b.rotation + 2;
+  }
+});
 fragB.length = 150;
 fragB.drawSize = 150;
 fragB.damage = 50;
@@ -9,10 +13,9 @@ fragB.lifetime = 100;
 
 const lBullet = extend(ArtilleryBulletType, {
   despawned(b){
-    for(let i = 0; i < 4; ++i){
+    for(let i = 0; i < 2; ++i){
       let ang = i * 90;
-      for(let z = 0; z < 360; ++z) ++rot
-      fragB.create(b.owner, b.team, b.x, b.y, ang + rot);
+      fragB.create(b.owner, b.team, b.x, b.y, ang + b.rotation());
     }
   }
 });
