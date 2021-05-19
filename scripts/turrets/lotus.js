@@ -4,13 +4,13 @@ const fragB = extend(ContinuousLaserBulletType, {});
 fragB.length = 150;
 fragB.drawSize = 150;
 fragB.damage = 50;
-fraqB.lifetime = 100;
+fragB.lifetime = 100;
 let despawned = false;
 let rot = 0;
 
 const lBullet = extend(ArtilleryBulletType, {
   update(b){
-    rot = rot + 0.5;
+    rot = rot + 1.5;
     if(despawned){
       for(let i = 0; i < 4; ++i){
         let ang = i * 90 + b.rotation();
