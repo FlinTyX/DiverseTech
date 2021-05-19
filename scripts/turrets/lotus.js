@@ -12,7 +12,7 @@ const lBullet = extend(ArtilleryBulletType, {
     for (let i = 0; i < 4; ++i){
       let rot = 0;
       for (i = 0; i < 100; i++) rot++
-      let ang = (i * 90 + b.rotation);
+      let ang = i * 90 + b.rotation();
       fragB.create(this.owner, this.team, b.x, b.y, ang + rot);
     }  
   }
