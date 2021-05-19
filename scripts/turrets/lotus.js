@@ -10,7 +10,7 @@ const lBullet = extend(ArtilleryBulletType, {
   //pain
   despawned(b){
     for (let i = 0; i < 4; ++i){
-      let rot = (i * 90 + b.rot);
+      let rot = (i * 90 + b.rotation);
       fragB.create(this.owner, b.x, b.y, rot + b.fin() * 100);
     }  
   }
