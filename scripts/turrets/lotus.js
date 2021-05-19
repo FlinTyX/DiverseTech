@@ -7,15 +7,6 @@ const fragB = extend(ContinuousLaserBulletType, {
 });
 
 const lBullet = extend(ArtilleryBulletType, {
-  damage: 10,
-  speed: 2.2,
-  lifetime: 80,
-  width: 14,
-  height: 12,
-  collidesTiles: false,
-  splashDamageRadius: 72,
-  splashDamage: 65,
-  
   //pain
   despawned(b){
     for (let i = 0; i < 4; ++i){
@@ -23,7 +14,16 @@ const lBullet = extend(ArtilleryBulletType, {
       fragB.create(this.owner, b.x, b.y, rot + b.fin() * 100);
     }
 });
-  
+damage = 10;
+speed = 2.2;
+lifetime = 80;
+width = 14;
+height = 12;
+collidesTiles = false;
+splashDamageRadius = 72;
+splashDamage = 65;
+
+//bullet
 const lotus = extend(PowerTurret, "lotus", {
   targetAir: false,
   shots: 1,
