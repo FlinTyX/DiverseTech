@@ -8,14 +8,11 @@ fragB.damage = 50;
 fragB.lifetime = 100;
 
 const lBullet = extend(ArtilleryBulletType, {
-  update(b){
-    rot++
-    despawned(b){
-      for(let i = 0; i < 4; ++i){
-        let ang = i * 90;
-        fragB.create(b.owner, b.team, b.x, b.y, ang + rot);
-      }
-    },
+  despawned(b){
+    for(let i = 0; i < 4; ++i){
+      let ang = i * 90;
+      fragB.create(b.owner, b.team, b.x, b.y, ang + b.fin() * 360);
+    }
   }
 });
 lBullet.damage = 10;
