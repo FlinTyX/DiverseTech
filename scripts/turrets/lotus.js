@@ -12,7 +12,8 @@ const lBullet = extend(ArtilleryBulletType, {
     for (let i = 0; i < 4; ++i){
       let rot = (i * 90 + b.rot);
       fragB.create(this.owner, b.x, b.y, rot + b.fin() * 100);
-    }
+    }  
+  }
 });
 lBullet.damage = 10;
 lBullet.speed = 2.2;
