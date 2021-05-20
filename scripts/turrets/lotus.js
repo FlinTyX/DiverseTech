@@ -33,6 +33,7 @@ const lotus = extend(PowerTurret, "lotus", {
   shootShake: 7,
   range: 290,
   minRange: 65,
+  shootDuration: 1,
   shootType: lBullet
 });
 
