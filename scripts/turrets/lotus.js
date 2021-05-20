@@ -17,9 +17,12 @@ const lBullet = extend(ArtilleryBulletType, {
   splashDamageRadius: 72,
   splashDamage: 65,
   
+  //aaaaaaaaaaaaaaaa
   despawned(b){
     for(let i = 0; i < 4; ++i){
+      let rotato = 0;
       let ang = i * 90;
+      for(let z = 0; z < 360; ++z) rotato++
       fragB.create(b.owner, b.team, b.x, b.y, ang + b.rotation());
     }
   }
