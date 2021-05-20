@@ -3,8 +3,8 @@ const fragB = extend(ContinuousLaserBulletType, {
   length: 150,
   drawSize: 150,
   damage: 50,
-  shoodDuration: 150,
-  continuous: false,
+  lifetime: 200,
+  continuous: true,
 });
 
 const lBullet = extend(ArtilleryBulletType, {
@@ -18,9 +18,22 @@ const lBullet = extend(ArtilleryBulletType, {
   splashDamage: 65,
   
   despawned(b){
-    for(let i = 0; i < 4; ++i){
-      let ang = i * 90 + b.rotation();
-      fragB.create(b.owner, b.team, b.x, b.y, Angles.moveToward(ang, ang * 5, 10));
+    let dpw = true;
+    let rot = b.rotation();
+    if(dpw){
+      Timer.schedule(() => {
+        dpw = false;
+        
+      }, 5)
+    }
+  },
+  update(b){
+    if(dpw){
+      ++trn;
+      for(let i = 0; i < 2; i++){
+        let ang = 90 * i + b.rotation() + trn + rot;
+        fragB.create(b.owner, b.team, b.x, b.y, ang);
+      }
     }
   }
 });
@@ -34,7 +47,6 @@ const lotus = extend(PowerTurret, "lotus", {
   shootShake: 7,
   range: 290,
   minRange: 65,
-  shootDuration: 200,
   shootType: lBullet
 });
 
