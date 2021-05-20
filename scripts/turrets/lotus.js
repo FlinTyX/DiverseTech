@@ -8,6 +8,7 @@ fragB.length = 150;
 fragB.drawSize = 150;
 fragB.damage = 50;
 fragB.lifetime = 100;
+fragB.continuous = false;
 
 const lBullet = extend(ArtilleryBulletType, {
   despawned(b){
