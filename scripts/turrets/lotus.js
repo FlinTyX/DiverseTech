@@ -1,5 +1,3 @@
-let dpw = false;
-let rotato = 0;
 //tests
 const fragB = extend(ContinuousLaserBulletType, {
   length: 150,
@@ -18,16 +16,10 @@ const lBullet = extend(ArtilleryBulletType, {
   splashDamageRadius: 72,
   splashDamage: 65,
   
-  //aaaaaaaaaaaaaaaa
-  update(b){
-    rotato++
-  },
   despawned(b){
-    dpw = true;
     for(let i = 0; i < 4; ++i){
-      rotato = 0;
-      let ang = i * 90;
-      fragB.create(b.owner, b.team, b.x, b.y, ang + b.rotation() + rotato);
+      let ang = i * 90 + b.rotaion();
+      fragB.create(b.owner, b.team, b.x, b.y, Angles.moveToward(ang, ang * 360, 10));
     }
   }
 });
@@ -44,4 +36,14 @@ const lotus = extend(PowerTurret, "lotus", {
   shootType: lBullet
 });
 
-lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {});
+lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
+  updateTile(){
+    if(this.isShooting()){
+      Time.schedule(() => {
+        this.block.shootDuration = 150;
+      }, 1)
+    } else if(!this.isShooting()){
+      this.block.shootDuration = 1;
+    }
+  }
+});
