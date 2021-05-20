@@ -1,3 +1,6 @@
+let dpw = false;
+let rot = 0;
+
 //tests
 const fragB = extend(ContinuousLaserBulletType, {
   length: 150,
@@ -18,12 +21,11 @@ const lBullet = extend(ArtilleryBulletType, {
   splashDamage: 65,
   
   despawned(b){
-    let dpw = true;
-    let rot = b.rotation();
+    dpw = true;
+    rot = b.rotation();
     if(dpw){
       Timer.schedule(() => {
         dpw = false;
-        
       }, 5)
     }
   },
