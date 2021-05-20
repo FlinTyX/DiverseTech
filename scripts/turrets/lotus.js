@@ -33,11 +33,12 @@ const lotus = extend(PowerTurret, "lotus", {
   shootShake: 7,
   range: 290,
   minRange: 65,
-  shootDuration: 1,
+  shootDuration: 200,
   shootType: lBullet
 });
 
 lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
+/*
   updateTile(){
     this.super$updateTile();
     if(this.isShooting()){
@@ -48,4 +49,5 @@ lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
       this.block.shootDuration = 1;
     }
   }
+*/
 });
