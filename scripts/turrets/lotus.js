@@ -23,7 +23,7 @@ const lBullet = extend(ArtilleryBulletType, {
       let rotato = 0;
       let ang = i * 90;
       for(let z = 0; z < 360; ++z) rotato++
-      fragB.create(b.owner, b.team, b.x, b.y, ang + b.rotation());
+      fragB.create(b.owner, b.team, b.x, b.y, ang + b.rotation() + rotato);
     }
   }
 });
