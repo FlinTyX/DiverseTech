@@ -41,7 +41,7 @@ lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
     if(this.isShooting()){
-      Time.schedule(() => {
+      Timer.schedule(() => {
         this.block.shootDuration = 150;
       }, 1)
     } else if(!this.isShooting()){
