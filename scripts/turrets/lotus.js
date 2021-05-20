@@ -4,7 +4,7 @@ const fragB = extend(ContinuousLaserBulletType, {
   drawSize: 150,
   damage: 50,
   shoodDuration: 150,
-  continuous: true,
+  continuous: false,
 });
 
 const lBullet = extend(ArtilleryBulletType, {
