@@ -3,6 +3,7 @@ const fragB = extend(ContinuousLaserBulletType, {
   length: 150,
   drawSize: 150,
   damage: 50,
+  shoodDuration: 150,
   continuous: true,
 });
 
