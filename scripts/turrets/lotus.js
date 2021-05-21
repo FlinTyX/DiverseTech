@@ -30,6 +30,7 @@ const lBullet = extend(ArtilleryBulletType, {
   },
   update(b){
     rot = rot + 2;
+  }
 });
 
 //bullet
