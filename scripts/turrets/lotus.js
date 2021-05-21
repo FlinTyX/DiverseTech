@@ -5,15 +5,13 @@ const lBullet = extend(ContinuousLaserBulletType, {
   damage: 50,
   collides: true,
   lifetime: 200,
-  continuous: true,
-  collidesTiles: true,
 });
 
 const lotus = extend(PowerTurret, "lotus", {
-  targetAir: false,
   shots: 1,
   inaccuracy: 3,
   reloadTime: 300,
+  liquidMultiplier: 0,
   shootShake: 7,
   range: 290,
   minRange: 65,
@@ -21,7 +19,7 @@ const lotus = extend(PowerTurret, "lotus", {
   shootType: lBullet
 });
 
-lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
+lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
     if(this.isShooting()){
