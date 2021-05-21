@@ -1,5 +1,5 @@
 //tests
-const fragB = extend(ContinuousLaserBulletType, {
+const lBullet = extend(ContinuousLaserBulletType, {
   length: 150,
   drawSize: 150,
   damage: 50,
