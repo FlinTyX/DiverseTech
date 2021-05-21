@@ -22,7 +22,7 @@ const lotus = extend(ItemTurret, "lotus", {
   shootType: lBullet
 });
 
-lotus.buildType = () => extend(ItemTurret.ItemTurretBuild, lotus, {
+lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
     if(this.isShooting() && this.power.status > 0 && !this.isControlled()){
