@@ -15,7 +15,7 @@ const lotus = extend(LaserTurret, "lotus", {
   range: 290,
   liquidMultiplier: 1,
   shootDuration: 250,
-  shootLength: 0,
+  shootLength: -10,
   shootType: lBullet
 });
 
@@ -24,7 +24,6 @@ lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
     this.super$updateTile();
     if(this.isShooting() && this.power.status > 0 && !this.isControlled()){
       this.rotation = this.rotation + 7;
-      lBullet.rotation(this.rotation + 90);
     }
   }
 });
