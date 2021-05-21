@@ -27,4 +27,11 @@ const turret = extend(ItemTurret, "the", {
   shootShake: 5,
 });
 
-turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {});
+turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
+  init(){
+    this.ammo(
+      Vars.content.getByName(ContentType.item, "hyper-alloy"), bullet
+      );
+      this..super$init();
+  }
+});
