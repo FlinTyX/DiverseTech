@@ -9,7 +9,7 @@ const fragB = extend(ContinuousLaserBulletType, {
   collidesTiles: true,
   
   update(b){
-    b.rotation(b.rotation + 2);
+    b.rotation(b.rotation() + 2);
   }
 });
 
@@ -25,7 +25,7 @@ const lBullet = extend(ArtilleryBulletType, {
   
   despawned(b){
     for(let i = 0; i < 4; i++){
-      let ang = 90 * i + b.rotation();
+      let ang = 90 * i;
       fragB.create(b.owner, b.team, b.x, b.y, ang);
     }
   }
