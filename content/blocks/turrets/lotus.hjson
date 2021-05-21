@@ -14,7 +14,7 @@ consumes: {
   power: 8
   items: {
     items: [
-      steel-compund/1
+      steel-compound/1
     ]
   }
   liquid: {
