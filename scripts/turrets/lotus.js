@@ -5,6 +5,7 @@ const lBullet = extend(ContinuousLaserBulletType, {
   damage: 50,
   collides: true,
   lifetime: 300,
+  continuous: true
 });
 
 const lotus = extend(ItemTurret, "lotus", {
