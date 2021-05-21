@@ -4,7 +4,7 @@ const lBullet = extend(ContinuousLaserBulletType, {
   drawSize: 140,
   damage: 50,
   collides: true,
-  lifetime: 70,
+  lifetime: 300,
 });
 
 const lotus = extend(LaserTurret, "lotus", {
@@ -18,7 +18,7 @@ const lotus = extend(LaserTurret, "lotus", {
   range: 290,
   liquidMultiplier: 1,
   shootDuration: 290,
-  rotateSpeed: 0,
+  rotateSpeed: 4,
   shootType: lBullet
 });
 
