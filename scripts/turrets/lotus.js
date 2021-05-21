@@ -23,8 +23,8 @@ const lBullet = extend(ArtilleryBulletType, {
   
   despawned(b){
     for(let i = 0; i < 4; i++){
-      let ang = 90 * i + b.rotation(Angles.moveToward(b.rotation(), b.angleTo(b.rotation() * 5), 2 * Time.delta * 50));
-      fragB.create(b.owner, b.team, b.x, b.y, ang);
+      let ang = 90 * i + b.rotation();
+      fragB.create(b.owner, b.team, b.x, b.y, ang, 5, 10);
     }
   }
 });
