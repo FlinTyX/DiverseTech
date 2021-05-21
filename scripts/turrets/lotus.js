@@ -22,7 +22,7 @@ const lotus = extend(LaserTurret, "lotus", {
 lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
-    if(this.isShooting() && this.power.status > 0 && !this.isControlled()this.power.status > 0){
+    if(this.isShooting() && this.power.status > 0 && !this.isControlled()){
       this.rotation = this.rotation + 7;
       lBullet.rotation(this.rotation + 90);
     }
