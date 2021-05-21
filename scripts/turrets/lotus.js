@@ -14,16 +14,16 @@ const lotus = extend(LaserTurret, "lotus", {
   shootShake: 7,
   range: 290,
   minRange: 65,
-  shootDuration: 200,
+  shootDuration: 250,
   shootType: lBullet
 });
 
 lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
-    if(this.isShooting() && this.power.status > 0){
-      this.rotation = this.rotation + 3;
-    } else if(!this.isShooting()){
+    if(this.isShooting() && this.power.status > 0 || this.wasShooting() && this.isControlled() && this.power.status > 0){
+      this.rotation = this.rotation + 15;
+    } else if(!this.isShooting() || !this.wasShooting()){
       this.rotation = this.rotation;
     }
   }
