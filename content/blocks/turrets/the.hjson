@@ -13,11 +13,6 @@ maxAmmo: 30
 ammoPerShot: 25
 
 consumes: {
-  items: {
-    items: [
-      hyper-alloy/2
-    ]
-  }
   liquid: {
     liquid: water
     amount: 0.3
