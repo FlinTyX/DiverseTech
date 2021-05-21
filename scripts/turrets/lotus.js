@@ -26,6 +26,7 @@ const lBullet = extend(ArtilleryBulletType, {
       let ang = 90 * i + b.rotation();
       fragB.create(b.owner, b.team, b.x, b.y, ang);
     }
+  }
 });
 
 //bullet
