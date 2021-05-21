@@ -32,6 +32,6 @@ turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
     this.ammo(
       Vars.content.getByName(ContentType.item, "hyper-alloy"), bullet
       );
-      this..super$init();
+      this.super$init();
   }
 });
