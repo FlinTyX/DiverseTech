@@ -1,10 +1,10 @@
 //tests
 const lBullet = extend(ContinuousLaserBulletType, {
-  length: 150,
-  drawSize: 150,
+  length: 120,
+  drawSize: 140,
   damage: 50,
   collides: true,
-  lifetime: 200,
+  lifetime: 70,
 });
 
 const lotus = extend(LaserTurret, "lotus", {
@@ -13,18 +13,19 @@ const lotus = extend(LaserTurret, "lotus", {
   reloadTime: 300,
   shootShake: 7,
   range: 290,
-  minRange: 65,
+  liquidMultiplier: 1,
+  shots: 4,
   shootDuration: 250,
+  shootLength: 0,
   shootType: lBullet
 });
 
 lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
-    if(this.isShooting() && this.power.status > 0 || this.wasShooting && this.isControlled() && this.power.status > 0){
-      this.rotation = this.rotation + 15;
-    } else if(!this.isShooting() || !this.wasShooting){
-      this.rotation = this.rotation;
+    if(this.isShooting() && this.power.status > 0 && !this.isControlled()this.power.status > 0){
+      this.rotation = this.rotation + 7;
+      lBullet.rotation(this.rotation + 90);
     }
   }
 });
