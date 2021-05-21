@@ -7,10 +7,6 @@ const lBullet = extend(ContinuousLaserBulletType, {
   lifetime: 200,
   continuous: true,
   collidesTiles: true,
-  
-  update(b){
-    b.rotation(b.rotation() + 2);
-  }
 });
 
 const lotus = extend(PowerTurret, "lotus", {
@@ -21,6 +17,7 @@ const lotus = extend(PowerTurret, "lotus", {
   shootShake: 7,
   range: 290,
   minRange: 65,
+  shootDuration: 200,
   shootType: lBullet
 });
 
@@ -30,7 +27,7 @@ lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
     if(this.isShooting()){
       this.rotation++;
     } else if(!this.isShooting()){
-      this.rotation = 0;
+      this.rotation = this.rotation;
     }
   }
 });
