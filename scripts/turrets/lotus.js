@@ -26,12 +26,12 @@ const lBullet = extend(ArtilleryBulletType, {
     if(dpw){
       Timer.schedule(() => {
         dpw = false;
-      }, 5)
+      }, 0.01)
     }
   },
   update(b){
+    ++rot;
     if(dpw){
-      ++trn;
       for(let i = 0; i < 2; i++){
         let ang = 90 * i + b.rotation() + trn + rot;
         fragB.create(b.owner, b.team, b.x, b.y, ang);
