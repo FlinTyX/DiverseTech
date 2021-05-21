@@ -8,13 +8,12 @@ const lBullet = extend(ContinuousLaserBulletType, {
 });
 
 const lotus = extend(LaserTurret, "lotus", {
-  shots: 1,
+  shots: 4,
   inaccuracy: 3,
   reloadTime: 300,
   shootShake: 7,
   range: 290,
   liquidMultiplier: 1,
-  shots: 4,
   shootDuration: 250,
   shootLength: 0,
   shootType: lBullet
