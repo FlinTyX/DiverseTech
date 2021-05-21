@@ -13,25 +13,6 @@ const fragB = extend(ContinuousLaserBulletType, {
   }
 });
 
-const lBullet = extend(ArtilleryBulletType, {
-  damage: 10,
-  speed: 2.2,
-  lifetime: 70,
-  width: 14,
-  heigth: 12,
-  collidesTiles: false,
-  splashDamageRadius: 72,
-  splashDamage: 65,
-  
-  despawned(b){
-    for(let i = 0; i < 4; i++){
-      let ang = 90 * i;
-      fragB.create(b.owner, b.team, b.x, b.y, ang);
-    }
-  }
-});
-
-//bullet
 const lotus = extend(PowerTurret, "lotus", {
   targetAir: false,
   shots: 1,
@@ -44,16 +25,12 @@ const lotus = extend(PowerTurret, "lotus", {
 });
 
 lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
-/*
   updateTile(){
     this.super$updateTile();
     if(this.isShooting()){
-      Timer.schedule(() => {
-        this.block.shootDuration = 150;
-      }, 1)
+      this.rotation++;
     } else if(!this.isShooting()){
-      this.block.shootDuration = 1;
+      this.rotation = 0;
     }
   }
-*/
 });
