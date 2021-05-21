@@ -12,11 +12,6 @@ solid: true
 
 consumes: {
   power: 8
-  items: {
-    items: [
-      steel-compound/1
-    ]
-  }
   liquid: {
     liquid: cryofluid
     amount: 2.1
