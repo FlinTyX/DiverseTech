@@ -18,6 +18,7 @@ const lotus = extend(LaserTurret, "lotus", {
   range: 290,
   liquidMultiplier: 1,
   shootDuration: 290,
+  rotateSpeed: 0,
   shootType: lBullet
 });
 
