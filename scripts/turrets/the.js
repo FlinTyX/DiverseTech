@@ -10,7 +10,7 @@ const bullet = extend(MissileBulletType, {
     Timer.schedule(() => {
       b.speed += 20;
       b.homingPower += 0.1;
-    }, 3}
+    }, 3)
   },
   despawned(b){
     b.speed = 3;
