@@ -1,8 +1,5 @@
 //tests
 const lBullet = extend(ContinuousLaserBulletType, {
-  spacing : 90,
-  shootCone : 360,
-  shootLength : 0,
   length: 120,
   drawSize: 140,
   damage: 50,
@@ -10,8 +7,11 @@ const lBullet = extend(ContinuousLaserBulletType, {
   lifetime: 300,
 });
 
-const lotus = extend(LaserTurret, "lotus", {
+const lotus = extend(ItemTurret, "lotus", {
   shots: 4,
+  spacing : 90,
+  shootCone : 360,
+  shootLength : 0,
   inaccuracy: 0,
   reloadTime: 300,
   shootShake: 7,
@@ -21,11 +21,11 @@ const lotus = extend(LaserTurret, "lotus", {
   shootType: lBullet
 });
 
-lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
+lotus.buildType = () => extend(ItemTurret.ItemTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
     if(this.isShooting() && this.power.status > 0 && !this.isControlled()){
-      this.rotation = 7;
+      this.rotation = this.rotation7;
     }
   }
 });
