@@ -1,4 +1,4 @@
-//tests
+/*
 const lBullet = extend(ContinuousLaserBulletType, {
   length: 120,
   drawSize: 140,
@@ -8,7 +8,7 @@ const lBullet = extend(ContinuousLaserBulletType, {
   continuous: true
 });
 
-const lotus = extend(ItemTurret, "lotus", {
+const lotus = extend(LaserTurret, "lotus", {
   shots: 4,
   spacing : 90,
   shootCone : 360,
@@ -22,7 +22,7 @@ const lotus = extend(ItemTurret, "lotus", {
   shootType: lBullet
 });
 
-lotus.buildType = () => extend(ItemTurret.ItemTurretBuild, lotus, {
+lotus.buildType = () => extend(LaserTurret.LaserTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
     if(this.isShooting() && this.power.status > 0 && !this.isControlled() && this.hasAmmo()){
@@ -30,3 +30,4 @@ lotus.buildType = () => extend(ItemTurret.ItemTurretBuild, lotus, {
     }
   }
 });
+*/
