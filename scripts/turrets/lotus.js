@@ -25,7 +25,7 @@ lotus.buildType = () => extend(PowerTurret.PowerTurretBuild, lotus, {
   updateTile(){
     this.super$updateTile();
     if(this.isShooting()){
-      this.rotation++;
+      this.rotation = this.rotation + 5;
     } else if(!this.isShooting()){
       this.rotation = this.rotation;
     }
