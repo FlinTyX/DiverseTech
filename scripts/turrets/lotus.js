@@ -1,6 +1,3 @@
-let dpw = false;
-let rot = 0;
-
 //tests
 const fragB = extend(ContinuousLaserBulletType, {
   length: 150,
@@ -8,6 +5,10 @@ const fragB = extend(ContinuousLaserBulletType, {
   damage: 50,
   lifetime: 200,
   continuous: true,
+  
+  update(b){
+    b.vel.setAngle(Angles.moveToward(b.rotation(), b.angleTo(b.rotation() * 5), 2 * Time.delta * 50));
+  }
 });
 
 const lBullet = extend(ArtilleryBulletType, {
@@ -21,23 +22,10 @@ const lBullet = extend(ArtilleryBulletType, {
   splashDamage: 65,
   
   despawned(b){
-    dpw = true;
-    rot = b.rotation();
-    if(dpw){
-      Timer.schedule(() => {
-        dpw = false;
-      }, 0.01)
+    for(let i = 0; i < 4; i++){
+      let ang = 90 * i + b.rotation();
+      fragB.create(b.owner, b.team, b.x, b.y, ang);
     }
-  },
-  update(b){
-    ++rot;
-    if(dpw){
-      for(let i = 0; i < 2; i++){
-        let ang = 90 * i + b.rotation() + trn + rot;
-        fragB.create(b.owner, b.team, b.x, b.y, ang);
-      }
-    }
-  }
 });
 
 //bullet
