@@ -1,5 +1,8 @@
 //tests
 const lBullet = extend(ContinuousLaserBulletType, {
+  spacing : 90,
+  shootCone : 360,
+  shootLength : 0,
   length: 120,
   drawSize: 140,
   damage: 50,
@@ -8,17 +11,13 @@ const lBullet = extend(ContinuousLaserBulletType, {
 });
 
 const lotus = extend(LaserTurret, "lotus", {
-  shots : 4,
-  spacing : 90,
-  shootCone : 360,
-  shootLength : 0,
-  inaccuracy: 3,
+  shots: 4,
+  inaccuracy: 0,
   reloadTime: 300,
   shootShake: 7,
   range: 290,
   liquidMultiplier: 1,
-  shootDuration: 290,
-  rotateSpeed: 4,
+  shootDuration: 250,
   shootType: lBullet
 });
 
