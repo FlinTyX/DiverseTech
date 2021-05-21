@@ -11,7 +11,6 @@ update: true
 solid: true
 
 consumes: {
-  power: 7
   items: {
     items: [
       steel-compound/1
