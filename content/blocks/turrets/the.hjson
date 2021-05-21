@@ -1,0 +1,31 @@
+localizedName: The
+description: test
+size: 4
+hasItems: true
+hasPower: false
+hasLiquids: true
+liquidMultiplier: 1
+health: 2300
+update: true
+solid: true
+targetGround: true
+targetAir: true
+maxAmmo: 30
+ammoPerShot: 25
+
+consumes: {
+  items: {
+    items: [
+      hyper-alloy/2
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 0.3
+    booster: false
+    optional: false
+  }
+}
+
+research: start
+category: turret
