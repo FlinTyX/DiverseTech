@@ -1,6 +1,6 @@
 const b1 = extend(MissileBulletType, {
   damage: 340,
-  speed: 3,
+  speed: 2,
   lifetime: 150,
   homingPower: 0.01,
   width: 8,
@@ -8,12 +8,12 @@ const b1 = extend(MissileBulletType, {
   
   update(b){
     Timer.schedule(() => {
-      b1.speed += 20;
+      b1.speed += 10;
       b1.homingPower += 0.1;
     }, 3)
   },
   despawned(b){
-    b1.speed = 3;
+    b1.speed = 2;
     b1.homingPower = 0.01;
   }
 });
