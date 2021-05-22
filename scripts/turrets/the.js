@@ -8,6 +8,7 @@ const b1 = extend(MissileBulletType, {
   height: 8,
   
   update(b){
+    this.super$update(b);
     if(b1.speed < 6) b1.speed = b1.speed + b1.speed/4;
     b1.homingPower = 0.1;
   },
