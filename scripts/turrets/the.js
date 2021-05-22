@@ -24,7 +24,8 @@ const turret = extend(ItemTurret, "the", {
   shootCone: 2,
   reloadTime: 210,
   rotateSpeed: 5,
-  shootShake: 5
+  shootShake: 5,
+  bulletType: bullet
 });
 
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
