@@ -10,7 +10,7 @@ solid: true
 targetGround: true
 targetAir: true
 maxAmmo: 30
-ammoPerShot: 25
+ammoPerShot: 10
 
 consumes: {
   liquid: {
