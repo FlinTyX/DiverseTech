@@ -1,8 +1,9 @@
 const b1 = extend(MissileBulletType, {
   damage: 340,
   speed: 1.2,
-  lifetime: 150,
+  lifetime: 200,
   homingPower: 0.01,
+  homingRange: 60,
   width: 8,
   height: 8,
   
@@ -23,15 +24,16 @@ const b1 = extend(MissileBulletType, {
 const b2 = extend(MissileBulletType, {
   damage: 110,
   speed: 2.7,
-  lifetime: 150,
+  lifetime: 200,
   homingPower: 0.1,
+  homingRange: 60,
   width: 8,
   height: 8
 });
 
 const turret = extend(ItemTurret, "the", {
   shots: 1,
-  range: 150,
+  range: 250,
   shootCone: 2,
   reloadTime: 210,
   rotateSpeed: 5,
