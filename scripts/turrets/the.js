@@ -2,23 +2,20 @@ const b1 = extend(MissileBulletType, {
   damage: 340,
   speed: 1.2,
   lifetime: 200,
-  homingPower: 0.01,
+  homingPower: 0.1,
   homingRange: 60,
   width: 8,
   height: 8,
   
   update(b){
     this.super$update(b);
-    if(b1.speed < 6) b1.speed = b1.speed + b1.speed/4;
-    b1.homingPower = 0.1;
+    b.vel.lerp(b, b1.speed);
   },
   despawned(b){
     b1.speed = 1.2;
-    b1.homingPower = 0.01;
   },
   hit(b){
     b1.speed = 1.2;
-    b1.homingPower = 0.01;
   }
 });
 
