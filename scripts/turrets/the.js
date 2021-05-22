@@ -50,7 +50,7 @@ const turret = extend(ItemTurret, "the", {
   
   init(){
     this.ammo(
-      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), b1
+      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bullet1
     );
     this.super$init();
   }
