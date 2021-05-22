@@ -21,5 +21,9 @@ consumes: {
   }
 }
 
-research: start
+requirements: [
+  copper/1
+]
+
 category: turret
+research: start
