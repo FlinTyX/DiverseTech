@@ -8,13 +8,13 @@ const b1 = extend(MissileBulletType, {
   
   update(b){
     Timer.schedule(() => {
-      b.speed += 20;
-      b.homingPower += 0.1;
+      b1.speed += 20;
+      b1.homingPower += 0.1;
     }, 3)
   },
   despawned(b){
-    b.speed = 3;
-    b.homingPower = 0.01;
+    b1.speed = 3;
+    b1.homingPower = 0.01;
   }
 });
 
