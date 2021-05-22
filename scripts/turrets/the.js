@@ -1,4 +1,4 @@
-const bullet = extend(MissileBulletType, {
+const theBullet = extend(MissileBulletType, {
   damage: 200,
   speed: 3,
   lifetime: 150,
@@ -25,13 +25,13 @@ const turret = extend(ItemTurret, "the", {
   reloadTime: 210,
   rotateSpeed: 5,
   shootShake: 5,
-  bulletType: bullet
+  bulletType: theBullet
 });
 
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   init(){
     this.ammo(
-      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bullet
+      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), theBullet
       );
       this.super$init();
   }
