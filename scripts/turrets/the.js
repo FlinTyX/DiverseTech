@@ -9,7 +9,7 @@ const b1 = extend(MissileBulletType, {
   
   update(b){
     this.super$update(b);
-    b.vel.lerp(b, 1);
+    b.vel.lerpDelta(b, 2);
   },
   despawned(b){
     b1.speed = 1.2;
