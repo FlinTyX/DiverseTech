@@ -39,7 +39,6 @@ const  bullet1  = extend(BasicBulletType, {
 const turret = extend(ItemTurret, "the", {
   shots: 4,
   range: 220,
-  shootCone: 2,
   reloadTime: 110,
   rotateSpeed: 5,
   shootShake: 5,
