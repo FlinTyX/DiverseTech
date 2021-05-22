@@ -1,5 +1,5 @@
-const theBullet = extend(MissileBulletType, {
-  damage: 200,
+const b1 = extend(MissileBulletType, {
+  damage: 340,
   speed: 3,
   lifetime: 150,
   homingPower: 0.01,
@@ -18,6 +18,15 @@ const theBullet = extend(MissileBulletType, {
   }
 });
 
+const b2 = extend(MissileBulletType, {
+  damage: 110,
+  speed: 2.7,
+  lifetime: 150,
+  homingPower: 0.1,
+  width: 8,
+  height: 8
+});
+
 const turret = extend(ItemTurret, "the", {
   shots: 1,
   range: 150,
@@ -30,8 +39,9 @@ const turret = extend(ItemTurret, "the", {
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   init(){
     this.ammo(
-      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), theBullet
-      );
-      this.super$init();
+      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), b1,
+      Vars.content.getByName(ContentType.item, "diversetech-nitinol"), b2
+    );
+    this.super$init();
   }
 });
