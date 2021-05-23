@@ -25,7 +25,7 @@ const fragB1 = extend(BasicBulletType, {
   },
   draw(b){
     this.super$draw(b);
-    b.data.draw(Colof.valueOf("ffc999"), 4);
+    b.data.draw(Color.valueOf("ffc999"), 4);
   }
 });
 
