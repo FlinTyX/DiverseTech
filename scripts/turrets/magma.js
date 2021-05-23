@@ -1,3 +1,53 @@
+//effects
+const shootFx = new Effect(40, e => {
+  Draw.color(Color.valueOf("f49d7c"));
+
+  for(let i = 0; i < 3; ++i){
+    Drawf.tri(e.x, e.y, e.fout() * 7, e.fout() * 90, e.rotation - 30 + (30 * i));
+  };
+
+  Lines.stroke(0.6);
+    Angles.randLenVectors(e.id, 8, 40 * e.finpow(), (x, y) => {
+      for(let i = 0; i < 4; ++i){
+        Drawf.tri(e.x+x, e.y+y, e.fout() * 3, e.fout () * 8, e.rotation + (90 * i) + e.fin() * 100);
+      }
+  });
+
+  e.scaled(7, i => {
+    Lines.stroke(3 * i.fout());
+    Lines.circle(e.x, e.y, 4 + i.fin() * 30);
+  });
+ 
+  Draw.color(Color.valueOf("f49d7c"), Color.valueOf("6e7080"), e.fin());
+  Angles.randLenVectors(e.id + 10, 8, 40 * e.finpow(), (x, y) => {
+    Fill.circle(e.x+x, e.y+y, e.fout() * 2);
+  });
+});
+
+const despawnFx = new Effect(45, e => {
+  e.rotation = e.fin() * 200;
+
+  Draw.color(Color.valueOf("f49d7c"));
+  for(let i = 0; i < 4; ++i){
+    Drawf.tri(e.x, e.y, e.fout() * 5, e.fout() * 70, e.rotation + (90 * i));
+  };
+
+  Lines.stroke(e.fout() * 1.5);
+  Lines.circle(e.x, e.y, 20 + e.fin() * 10);
+});
+
+const hitFx = new Effect(30, e => {
+  Draw.color(Color.valueOf("f49d7c"));
+
+  for(let i = 0; i < 2; ++i){
+    Drawf.tri(e.x, e.y, e.fout() * 5, e.fout() * 70, e.rotation - 190 + (25 * i) - e.fin());
+  };
+
+  Lines.stroke(e.fout() * 1.5);
+  Fill.circle(e.x, e.y, e.fout() * 3);
+  Lines.circle(e.x, e.y, e.finpow() * 20);
+});
+
 const fragB1 = extend(BasicBulletType, {
   damage: 95,
   speed: 4.5,
@@ -48,6 +98,11 @@ const  bullet1  = extend(BasicBulletType, {
   shrinkY: 0,
   sprite: "diversetech-smallArrow",
   backColor: Color.valueOf("ffc999"),
+  
+  //fx
+  hitEffect: hitFx,
+  shootEffect: shootFx,
+  despawnEffect: despawnFx,
   fragBullet: fragB1
 });
 
