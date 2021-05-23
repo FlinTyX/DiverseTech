@@ -57,8 +57,6 @@ const turret = extend(ItemTurret, "the", {
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   uptateTile(){
     this.super$updateTile();
-    if(!this.isShooting() || this.isShooting()){ 
-      this.rotation = this.rotation + 5;
-    }
+    this.rotation = this.rotation + 5;
   }
 });
