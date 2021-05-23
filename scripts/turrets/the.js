@@ -36,7 +36,7 @@ const  bullet1  = extend(BasicBulletType, {
   fragBullet: fragB1
 });
 
-const turret = extend(ItemTurret, "the", {
+const turret = extend(LaserTurret, "the", {
   shots: 4,
   range: 300,
   reloadTime: 140,
@@ -55,7 +55,7 @@ const turret = extend(ItemTurret, "the", {
   }
 });
 
-turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
+turret.buildType = () => extend(LaserTurret.LaserTurretBuild, turret, {
   updateTile(){
     this.super$updateTile();
     this.rotation = this.rotation + 3;
