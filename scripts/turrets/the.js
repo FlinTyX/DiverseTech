@@ -23,7 +23,7 @@ const  bullet1  = extend(BasicBulletType, {
   height: 18,
   width: 18,
   collidesGround: false,
-  collides: false,
+  collides: true,
   collidesAir: false,
   weaveScale: 3,
   weaveMag: 3,
@@ -39,7 +39,7 @@ const  bullet1  = extend(BasicBulletType, {
 const turret = extend(LaserTurret, "the", {
   shots: 4,
   range: 300,
-  reloadTime: 140,
+  reloadTime: 70,
   shootShake: 5,
   recoilAmount: 1,
   shootCone: 360,
