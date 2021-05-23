@@ -17,9 +17,9 @@ const fragB1 = extend(BasicBulletType, {
 
 const  bullet1  = extend(BasicBulletType, {
   damage: 90,
-  speed: 2,
+  speed: 5,
   lifetime: 210,
-  drag: 0.1,
+  drag: 0.05,
   height: 18,
   width: 18,
   collidesGround: false,
@@ -31,7 +31,7 @@ const  bullet1  = extend(BasicBulletType, {
   lightningLenght: 8,
   trailChance: 1,
   fragBullets: 1,
-  fragCone: 1,
+  fragCone: 360,
   shrinkY: 0,
   fragBullet: fragB1
 });
@@ -40,13 +40,11 @@ const turret = extend(ItemTurret, "the", {
   shots: 4,
   range: 220,
   reloadTime: 110,
-  rotateSpeed: 5,
   shootShake: 5,
   recoilAmount: 1,
-  inaccuracy: 12.5,
   shootCone: 360,
   spread: 90,
-  shootLenght: 5,
+  shootLenght: 0,
   
   init(){
     this.ammo(
