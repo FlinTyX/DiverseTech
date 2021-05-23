@@ -36,30 +36,23 @@ const  bullet1  = extend(BasicBulletType, {
   fragBullet: fragB1
 });
 
-const turret = extend(LaserTurret, "the", {
-  shots: 4,
+const turret = extend(ItemTurret, "the", {
+  shots: 3,
   range: 300,
-  reloadTime: 70,
+  reloadTime: 100,
   shootShake: 5,
-  recoilAmount: 1,
-  shootCone: 360,
-  spread: 90,
-  shootLenght: 0,
-  shootDuration: 0,
+  recoilAmount: 1.5,
+  shootCone: 90,
+  spread: 30,
+  inaccuracy: 10,
   shootType: bullet1,
-  /*
+  
   init(){
     this.ammo(
       Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bullet1
     );
     this.super$init();
   }
-  */
 });
 
-turret.buildType = () => extend(LaserTurret.LaserTurretBuild, turret, {
-  updateTile(){
-    this.super$updateTile();
-    this.rotation = this.rotation + 3;
-  }
-});
+turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {});
