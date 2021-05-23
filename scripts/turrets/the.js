@@ -17,9 +17,9 @@ const fragB1 = extend(BasicBulletType, {
 
 const  bullet1  = extend(BasicBulletType, {
   damage: 90,
-  speed: 0.3,
-  lifetime: 110,
-  drag: 0.05,
+  speed: 2,
+  lifetime: 210,
+  drag: 0.1,
   height: 18,
   width: 18,
   collidesGround: false,
@@ -59,8 +59,7 @@ const turret = extend(ItemTurret, "the", {
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   uptateTile(){
     this.super$updateTile();
-    if(this.hasAmmo()){
-      this.rotation = 5 + this.rotation;
-    }
+    if(this.hasAmmo && this.isShooting() || !this.isShooting()){ 
+      this.rotation = this.rotation + 5;
   }
 });
