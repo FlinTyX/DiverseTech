@@ -1,5 +1,5 @@
 localizedName: Magma
-description: When spriting goes wrong.
+description: Fires 3 cool bullets that will follow the enemy in a cool way. Very op.
 size: 4
 hasItems: true
 hasPower: false
@@ -15,7 +15,7 @@ ammoPerShot: 10
 consumes: {
   liquid: {
     liquid: water
-    amount: 0.4
+    amount: 0.5
     booster: false
     optional: false
   }
