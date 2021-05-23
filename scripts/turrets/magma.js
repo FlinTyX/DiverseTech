@@ -12,8 +12,8 @@ const fragB1 = extend(BasicBulletType, {
   weaveMag: 3,
   lightning: 3.5,
   lightningLenght: 10,
-  sprite: diversetech-arrow,
-  backColor: ffc999,
+  sprite: "diversetech-arrow",
+  backColor: Color.valueOf("ffc999"),
   shrinkY: 0
 });
 
@@ -35,8 +35,8 @@ const  bullet1  = extend(BasicBulletType, {
   fragBullets: 1,
   fragCone: 90,
   shrinkY: 0,
-  sprite: diversetech-smallArrow,
-  backColor: ffc999,
+  sprite: "diversetech-smallArrow",
+  backColor: Color.valueOf("ffc999"),
   fragBullet: fragB1
 });
 
