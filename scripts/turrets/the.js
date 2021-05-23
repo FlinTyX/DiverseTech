@@ -1,7 +1,7 @@
 const fragB1 = extend(BasicBulletType, {
   damage: 165,
   speed: 4.5,
-  lifetime: 70,
+  lifetime: 85,
   height: 23,
   width: 19,
   homingPower: 0.2,
@@ -18,7 +18,7 @@ const fragB1 = extend(BasicBulletType, {
 const  bullet1  = extend(BasicBulletType, {
   damage: 90,
   speed: 7,
-  lifetime: 220,
+  lifetime: 230,
   drag: 0.04,
   height: 18,
   width: 18,
@@ -38,8 +38,8 @@ const  bullet1  = extend(BasicBulletType, {
 
 const turret = extend(ItemTurret, "the", {
   shots: 4,
-  range: 220,
-  reloadTime: 120,
+  range: 300,
+  reloadTime: 140,
   shootShake: 5,
   recoilAmount: 1,
   shootCone: 360,
@@ -63,7 +63,7 @@ turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   },
   shoot(type){
     for(let i = 0; i < 4; i++){
-      type.crate(this, this.team, this.x, this.y, this.rotation + 90 * i);
+      type.create(this, this.team, this.x, this.y, this.rotation + (i * 90));
     }
     this.effects();
     this.useAmmo();
