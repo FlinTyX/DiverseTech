@@ -9,7 +9,7 @@ targetGround: true
 targetAir: true
 update: true
 solid: true
-powerUse: 8.1
+powerUse: 9
 
 consumes: {
   liquid: {
