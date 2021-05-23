@@ -45,7 +45,7 @@ const turret = extend(LaserTurret, "the", {
   shootCone: 360,
   spread: 90,
   shootLenght: 0,
-  shootDuration: this.reloadTime,
+  shootDuration: 200,
   shootType: bullet1,
   /*
   init(){
@@ -61,12 +61,5 @@ turret.buildType = () => extend(LaserTurret.LaserTurretBuild, turret, {
   updateTile(){
     this.super$updateTile();
     this.rotation = this.rotation + 3;
-  },
-  shoot(type){
-    for(let i = 0; i < 4; i++){
-      type.create(this, this.team, this.x, this.y, this.rotation + (i * 90));
-    }
-    this.effects();
-    this.useAmmo();
   }
 });
