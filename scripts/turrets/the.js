@@ -45,7 +45,7 @@ const turret = extend(LaserTurret, "the", {
   shootCone: 360,
   spread: 90,
   shootLenght: 0,
-  shootDuration: 200,
+  shootDuration: 0,
   shootType: bullet1,
   /*
   init(){
