@@ -45,6 +45,7 @@ const turret = extend(ItemTurret, "the", {
   shootCone: 360,
   spread: 90,
   shootLenght: 0,
+  shootDuration: this.reloadTime,
   
   init(){
     this.ammo(
@@ -57,9 +58,7 @@ const turret = extend(ItemTurret, "the", {
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   updateTile(){
     this.super$updateTile();
-    if(this.hasAmmo() && this.liquids.get(Liquids.water) >= 1 && this.isShooting() || this.wasShooting){
-      this.rotation = this.rotation + 3;
-    }  
+    this.rotation = this.rotation + 3;
   },
   shoot(type){
     for(let i = 0; i < 4; i++){
