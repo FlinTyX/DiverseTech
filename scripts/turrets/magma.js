@@ -1,6 +1,6 @@
 const fragB1 = extend(BasicBulletType, {
   damage: 95,
-  speed: 4,
+  speed: 4.5,
   lifetime: 80,
   height: 23,
   width: 19,
@@ -31,8 +31,8 @@ const fragB1 = extend(BasicBulletType, {
 const  bullet1  = extend(BasicBulletType, {
   damage: 60,
   speed: 7,
-  lifetime: 145,
-  drag: 0.035,
+  lifetime: 125,
+  drag: 0.04,
   height: 18,
   width: 18,
   collidesGround: false,
