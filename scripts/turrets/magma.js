@@ -6,7 +6,6 @@ const fragB1 = extend(BasicBulletType, {
   width: 19,
   homingPower: 0.2,
   homingRange: 200,
-  trailEffect: Fx.artilleryTrail,
   trailChance: 10,
   weaveScale: 3,
   weaveMag: 3,
@@ -14,7 +13,20 @@ const fragB1 = extend(BasicBulletType, {
   lightningLenght: 10,
   sprite: "diversetech-arrow",
   backColor: Color.valueOf("ffc999"),
-  shrinkY: 0
+  shrinkY: 0,
+  
+  init(b){
+    if(!b)return;
+    b.data = new Trail(10);
+  },
+  update(b){
+    this.super$update(b);
+    b.data.update(b.x, b.y);
+  },
+  draw(b){
+    this.super$draw(b);
+    b.data.draw(Colof.valueOf("ffc999"), 4);
+  }
 });
 
 const  bullet1  = extend(BasicBulletType, {
@@ -31,7 +43,8 @@ const  bullet1  = extend(BasicBulletType, {
   weaveMag: 3,
   lightning: 3,
   lightningLenght: 8,
-  trailChance: 0,
+  trailEffect: Fx.artilleryTrail,
+  trailChance: 8,
   fragBullets: 1,
   fragCone: 90,
   shrinkY: 0,
