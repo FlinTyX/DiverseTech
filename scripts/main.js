@@ -16,4 +16,5 @@ Events.on(ClientLoadEvent, () => {
   if(!shutUp){
     Vars.ui.showInfoText("[#ff4444]Confirm[]", "[accent]DiverseTech Mod \n \n If you are playing this mod, be aware it is under testing and it still in development. \n \n If you want to make a suggestion/pull request go to FlinTyX/DiverseTech.");
     shutUp = true;
+  }
 });
