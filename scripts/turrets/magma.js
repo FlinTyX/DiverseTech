@@ -89,7 +89,7 @@ const  bullet1  = extend(BasicBulletType, {
   drag: 0.04,
   height: 18,
   width: 18,
-  collidesGround: false,
+  collidesGround: true,
   collides: true,
   weaveScale: 3,
   weaveMag: 3,
