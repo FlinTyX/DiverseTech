@@ -39,12 +39,12 @@ const  bullet1  = extend(BasicBulletType, {
 const turret = extend(ItemTurret, "the", {
   shots: 4,
   range: 220,
-  reloadTime: 110,
+  reloadTime: 120,
   shootShake: 5,
   recoilAmount: 1,
   shootCone: 360,
   spread: 90,
-  shootLenght: -5,
+  shootLenght: 0,
   
   init(){
     this.ammo(
@@ -55,8 +55,17 @@ const turret = extend(ItemTurret, "the", {
 });
 
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
-  uptateTile(){
+  updateTile(){
     this.super$updateTile();
-    this.rotation = this.rotation + 5;
+    if(this.hasAmmo()){
+      this.rotation = this.rotation + 5;
+    }  
+  },
+  shoot(type){
+    for(let i = 0; i < 4; i++){
+      type.crate(this, this.team, this.x, this.y, this.rotation + 90 * i);
+    }
+    this.effects();
+    this.useAmmo();
   }
 });
