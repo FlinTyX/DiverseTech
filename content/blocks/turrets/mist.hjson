@@ -1,5 +1,5 @@
 localizedName: Mist
-description: A
+description: Freezzzeeee
 size: 3
 hasItems: false
 hasPower: true
@@ -11,7 +11,7 @@ update: true
 solid: true
 
 consumes: {
-  power: 8.1
+  power: 10
   liquid: {
     liquid: cryofluid
     amount: 1.1
@@ -22,9 +22,9 @@ consumes: {
 
 requirements: [
   copper/800
-  metaglass/200
-  nitinol/500
-  silicon/300
+  metaglass/250
+  nitinol/700
+  silicon/650
 ]
 
 category: turret
