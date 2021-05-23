@@ -46,6 +46,7 @@ const turret = extend(LaserTurret, "the", {
   spread: 90,
   shootLenght: 0,
   shootDuration: this.reloadTime,
+  shootType: bullet1,
   /*
   init(){
     this.ammo(
