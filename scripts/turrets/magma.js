@@ -114,9 +114,10 @@ const turret = extend(ItemTurret, "magma", {
   reloadTime: 125,
   shootShake: 5,
   recoilAmount: 2,
-  shootCone: 45,
+  shootCone: 10,
   spread: 30,
   inaccuracy: 15,
+  rotateSpeed: 3,
   shootType: bullet1,
   
   init(){
