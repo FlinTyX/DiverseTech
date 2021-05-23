@@ -57,7 +57,7 @@ const turret = extend(ItemTurret, "the", {
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   updateTile(){
     this.super$updateTile();
-    if(this.hasAmmo() && this.liquids.get(Liquids.water) >= 1 && this.isShooting() || !this.isShooting()){
+    if(this.hasAmmo() && this.liquids.get(Liquids.water) >= 1 && this.isShooting() || this.wasShooting){
       this.rotation = this.rotation + 3;
     }  
   },
