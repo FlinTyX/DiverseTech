@@ -29,7 +29,7 @@ const  bullet1  = extend(BasicBulletType, {
   weaveMag: 3,
   lightning: 3,
   lightningLenght: 8,
-  trailChance: 1,
+  trailChance: 0,
   fragBullets: 2,
   fragCone: 360,
   shrinkY: 0,
@@ -44,7 +44,7 @@ const turret = extend(ItemTurret, "the", {
   recoilAmount: 1,
   shootCone: 360,
   spread: 90,
-  shootLenght: -3,
+  shootLenght: -5,
   
   init(){
     this.ammo(
@@ -57,7 +57,7 @@ const turret = extend(ItemTurret, "the", {
 turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
   uptateTile(){
     this.super$updateTile();
-    if(!this.isShooting() || this.isShooting && this.hasAmmo()){ 
+    if(!this.isShooting() || this.isShooting){ 
       this.rotation = this.rotation + 5;
     }
   }
