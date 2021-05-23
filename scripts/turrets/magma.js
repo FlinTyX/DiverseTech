@@ -15,7 +15,7 @@ const shootFx = new Effect(40, e => {
 
   e.scaled(7, i => {
     Lines.stroke(3 * i.fout());
-    Lines.circle(e.x, e.y, 4 + i.fin() * 30);
+    Lines.circle(e.x, e.y, 4 + i.finpow() * 30);
   });
  
   Draw.color(Color.valueOf("f49d7c"), Color.valueOf("6e7080"), e.fin());
@@ -64,6 +64,10 @@ const fragB1 = extend(BasicBulletType, {
   backColor: Color.valueOf("ffc999"),
   shrinkY: 0,
   
+  //fx
+  hitEffect: hitFx,
+  despawnEffect: despawnFx,
+  
   init(b){
     if(!b)return;
     b.data = new Trail(10);
@@ -100,9 +104,7 @@ const  bullet1  = extend(BasicBulletType, {
   backColor: Color.valueOf("ffc999"),
   
   //fx
-  hitEffect: hitFx,
   shootEffect: shootFx,
-  despawnEffect: despawnFx,
   fragBullet: fragB1
 });
 
