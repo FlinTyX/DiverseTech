@@ -1,5 +1,5 @@
-localizedName: The
-description: test
+localizedName: Magma
+description: When spriting goes wrong.
 size: 4
 hasItems: true
 hasPower: false
@@ -15,15 +15,19 @@ ammoPerShot: 10
 consumes: {
   liquid: {
     liquid: water
-    amount: 0.3
+    amount: 0.4
     booster: false
     optional: false
   }
 }
 
 requirements: [
-  copper/1
+  nitinol/560
+  surge-alloy/433
+  lead/300
+  copper/500
+  nickel/350
 ]
 
 category: turret
-research: start
+research: mist
