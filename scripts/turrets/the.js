@@ -46,13 +46,14 @@ const turret = extend(LaserTurret, "the", {
   spread: 90,
   shootLenght: 0,
   shootDuration: this.reloadTime,
-  
+  /*
   init(){
     this.ammo(
       Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bullet1
     );
     this.super$init();
   }
+  */
 });
 
 turret.buildType = () => extend(LaserTurret.LaserTurretBuild, turret, {
