@@ -11,6 +11,9 @@ scripts.each(e => {
 print("DiverseTech is loaded, are you sure that u will play this?");
 
 //client load info
-Events.on(WorldLoadEvent, () => {
-  Vars.ui.showInfoText("[#ff4444]Confirm[]\n DiverseTech Mod", "If you are playing this mod, be aware it is under testing and that it still in development. \n \n If you want to make a suggestion/pull request goto FlinTyX/DiverseTech.");
+let shutUp = false;
+Events.on(ClientLoadEvent, () => {
+  if(!shutUp){
+    Vars.ui.showInfoText("[#ff4444]Confirm[]", "If you are playing this mod, be aware it is under testing and it still in development. \n \n If you want to make a suggestion/pull request go to FlinTyX/DiverseTech.");
+    shutUp = true;
 });
