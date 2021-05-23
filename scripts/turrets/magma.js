@@ -1,7 +1,7 @@
 const fragB1 = extend(BasicBulletType, {
-  damage: 105,
-  speed: 4.5,
-  lifetime: 90,
+  damage: 95,
+  speed: 4,
+  lifetime: 80,
   height: 23,
   width: 19,
   homingPower: 0.2,
@@ -30,7 +30,7 @@ const fragB1 = extend(BasicBulletType, {
 });
 
 const  bullet1  = extend(BasicBulletType, {
-  damage: 70,
+  damage: 60,
   speed: 7,
   lifetime: 145,
   drag: 0.035,
@@ -43,9 +43,9 @@ const  bullet1  = extend(BasicBulletType, {
   lightning: 3,
   lightningLenght: 8,
   trailEffect: Fx.artilleryTrail,
-  trailChance: 8,
+  trailChance: 6,
   fragBullets: 1,
-  fragCone: 90,
+  fragCone: 80,
   shrinkY: 0,
   sprite: "diversetech-smallArrow",
   backColor: Color.valueOf("ffc999"),
@@ -54,10 +54,10 @@ const  bullet1  = extend(BasicBulletType, {
 
 const turret = extend(ItemTurret, "magma", {
   shots: 3,
-  range: 300,
-  reloadTime: 110,
+  range: 290,
+  reloadTime: 125,
   shootShake: 5,
-  recoilAmount: 1.5,
+  recoilAmount: 2,
   shootCone: 45,
   spread: 30,
   inaccuracy: 15,
