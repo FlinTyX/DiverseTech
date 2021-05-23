@@ -45,7 +45,7 @@ const turret = extend(ItemTurret, "the", {
   recoilAmount: 1,
   inaccuracy: 12.5,
   shootCone: 360,
-  spacing: 90,
+  spread: 90,
   shootLenght: 5,
   
   init(){
@@ -61,5 +61,6 @@ turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {
     this.super$updateTile();
     if(this.hasAmmo && this.isShooting() || !this.isShooting()){ 
       this.rotation = this.rotation + 5;
+    }
   }
 });
