@@ -8,7 +8,7 @@ hasItems: true
 hasPower: true
 hasLiquids: true
 craftTime: 75
-craftEffect: smoke
+craftEffect: smeltsmoke
 ambientSound: machine
 ambientSoundVolume: 0.2
 
@@ -32,5 +32,6 @@ requirements: [
   graphite/90
 ]
 
+outputItem: steel-compound/1
 category: crafting
 research: quantum-former
