@@ -68,7 +68,7 @@ const trapper = extend(ItemTurret, "trapper", {
   recoilAmount: 2,
   shootCone: 8,
   spread: 20,
-  inaccuracy: 0,
+  inaccuracy: 5,
   rotateSpeed: 2.5,
 
   init(){
