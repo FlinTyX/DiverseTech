@@ -3,8 +3,6 @@ const bAlloy = extend(BasicBulletType, {
   speed: 8,
   drag: 0.05,
   lifetime: 360,
-  heght: 22,
-  width: 22,
   sprite: "diversetech-trap",
   backColor: Color.valueOf("ffffff"),
   lightning: 3,
@@ -18,10 +16,8 @@ const bAlloy = extend(BasicBulletType, {
   },
   update(b){
     this.super$update(b);
-    b.data.update(b.x, b.y);
-    Timer.schedule(() => {
-     b.rotation(b.rotation() + 2);
-    }, 1.2)
+    b.data.update(b.x, b.y); 
+    b.rotation(b.rotation() + b.fin() * 360);
   },
   draw(b){
     this.super$draw(b);
@@ -34,8 +30,6 @@ const bNitinol = extend(BasicBulletType, {
   speed: 8,
   drag: 0.05,
   lifetime: 365,
-  heght: 22,
-  width: 22,
   sprite: "diversetech-trap",
   backColor: Color.valueOf("ffffff"),
   lightning: 3,
@@ -62,13 +56,13 @@ const bNitinol = extend(BasicBulletType, {
 
 const trapper = extend(ItemTurret, "trapper", {
   shots: 3,
-  range: 125,
+  range: 135,
   reloadTime: 100,
   shootShake: 3,
   recoilAmount: 2,
   shootCone: 8,
   spread: 20,
-  inaccuracy: 5,
+  inaccuracy: 8,
   rotateSpeed: 2.5,
 
   init(){
