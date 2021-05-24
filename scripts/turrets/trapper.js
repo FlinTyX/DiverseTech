@@ -65,8 +65,8 @@ const trapper = extend(ItemTurret, "trapper", {
 
   init(){
     this.ammo(
-      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy", bAlloy,
-      Vars.content.getByName(ContentType.item, "diversetech-nitinol", bNitinol
+      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bAlloy,
+      Vars.content.getByName(ContentType.item, "diversetech-nitinol"), bNitinol
     );
     this.super$init();
   }
