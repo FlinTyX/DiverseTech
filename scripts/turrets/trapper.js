@@ -7,7 +7,7 @@ const bAlloy = extend(BesicBulletType, {
   width: 22,
   lightning: 3,
   collidesAir: false,
-  colidesGround: true,
+  collidesGround: true,
   collides: true,
   
   init(b){
