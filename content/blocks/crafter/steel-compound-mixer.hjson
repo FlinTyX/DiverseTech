@@ -10,7 +10,7 @@ hasLiquids: true
 craftTime: 75
 craftEffect: smoke
 ambientSound: machine
-ambientSoundVolude: 0.2
+ambientSoundVolume: 0.2
 
 consumes: {
   power: 0.6
@@ -26,7 +26,7 @@ consumes: {
   }
 }
 
-requirement: [
+requirements: [
   copper/210
   lead/140
   graphite/90
