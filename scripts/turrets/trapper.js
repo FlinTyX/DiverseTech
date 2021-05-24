@@ -17,7 +17,7 @@ const bAlloy = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y);
-    b.rotation(b.rotation + 1);
+    b.rotation(b.rotation() + 1);
   },
   draw(b){
     this.super$draw(b);
@@ -44,7 +44,7 @@ const bNitinol = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y);
-    b.rotation(b.rotation + 1);
+    b.rotation(b.rotation() + 1);
   },
   draw(b){
     this.super$draw(b);
