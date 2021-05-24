@@ -15,7 +15,7 @@ ammoPerShot: 20
 requirements: [
   copper/1100
   titanium/770
-  plastaniu/460
+  plastanium/460
 ]
 
 category: turret
