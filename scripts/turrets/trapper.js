@@ -6,10 +6,22 @@ const bAlloy = extend(BesicBulletType, {
   heght: 22,
   width: 22,
   lightning: 3,
-
+  collidesAir: false,
+  colidesGround: true,
+  collides: true,
+  
+  init(b){
+    if(!b)return;
+    b.data = new Trail(5);
+  },
   update(b){
-    b.rotation(b.rotation + 1);
     this.super$update(b);
+    b.data.update(b.x, b.y);
+    b.rotation(b.rotation + 1);
+  },
+  draw(b){
+    this.super$draw(b);
+    b.data.draw(Color.valueOf("ffffff"), 5);
   }
 });
 
@@ -21,10 +33,22 @@ const bNitinol = extend(BasicBulletType, {
   heght: 22,
   width: 22,
   lightning: 3,
+  collidesAir: false,
+  collidesGround: false,
+  collides: true,
 
+  init(b){
+    if(!b)return;
+    b.data = new Trail(5);
+  },
   update(b){
-    b.rotation(b.rotation + 1);
     this.super$update(b);
+    b.data.update(b.x, b.y);
+    b.rotation(b.rotation + 1);
+  },
+  draw(b){
+    this.super$draw(b);
+    b.data.draw(Color.valueOf("ffffff"), 5);
   }
 });
 
