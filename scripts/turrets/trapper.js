@@ -1,4 +1,4 @@
-const bAlloy = extend(BesicBulletType, {
+const bAlloy = extend(BasicBulletType, {
   damage: 270,
   speed: 8,
   drag: 0.07,
