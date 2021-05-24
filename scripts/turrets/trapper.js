@@ -55,13 +55,13 @@ const bNitinol = extend(BasicBulletType, {
 const trapper = extend(ItemTurret, "trapper", {
   shots: 3,
   range: 105,
-  reloadTime: 110,
+  reloadTime: 100,
   shootShake: 3,
   recoilAmount: 2,
   shootCone: 8,
   spread: 20,
   inaccuracy: 0,
-  rotateSpeed: 1.8,
+  rotateSpeed: 2.5,
 
   init(){
     this.ammo(
