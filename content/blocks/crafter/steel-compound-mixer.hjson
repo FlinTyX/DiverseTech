@@ -1,0 +1,36 @@
+type: GenericCrafter
+name: Steel Compound Mixer
+description: Mixes sand and coal to make Steel Compound.
+
+health: 340
+size: 2
+hasItems: true
+hasPower: true
+hasLiquids: true
+craftTime: 75
+craftEffect: smoke
+ambientSound: machine
+ambientSoundVolude: 0.2
+
+consumes: {
+  power: 0.6
+  items: {
+    items: [
+      sand/3
+      coal/3
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 0.12
+  }
+}
+
+requirement: [
+  copper/210
+  lead/140
+  graphite/90
+]
+
+category: crafting
+research: quantum-former
