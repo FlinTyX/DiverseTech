@@ -1,7 +1,7 @@
 const bAlloy = extend(BasicBulletType, {
-  damage: 270,
+  damage: 280,
   speed: 8,
-  drag: 0.02,
+  drag: 0.05,
   lifetime: 360,
   heght: 22,
   width: 22,
@@ -32,8 +32,8 @@ const bAlloy = extend(BasicBulletType, {
 const bNitinol = extend(BasicBulletType, {
   damage: 195,
   speed: 8,
-  drag: 0.02,
-  lifetime: 355,
+  drag: 0.05,
+  lifetime: 365,
   heght: 22,
   width: 22,
   sprite: "diversetech-trap",
