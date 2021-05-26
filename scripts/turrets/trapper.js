@@ -6,7 +6,7 @@ const bAlloy = extend(BasicBulletType, {
   width: 17,
   height: 17,
   shrinkY: 0,
-  sprite: "diversetech-trap",
+  sprite: "large-bomb",
   backColor: Color.valueOf("f2f2f2"),
   lightning: 1,
   collidesAir: false,
@@ -22,7 +22,7 @@ const bAlloy = extend(BasicBulletType, {
     b.data.update(b.x, b.y);
     Timer.schedule(() => {
       b.rotation(b.rotation() + 3);
-    }, 1.1);
+    }, 1.09);
   },
   draw(b){
     this.super$draw(b);
