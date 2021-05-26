@@ -1,21 +1,21 @@
 const bAlloy = extend(BasicBulletType, {
   damage: 280,
-  speed: 8.5,
-  drag: 0.03,
-  lifetime: 400,
-  width: 30,
-  height: 30,
+  speed: 7,
+  drag: 0.035,
+  lifetime: 420,
+  width: 25,
+  height: 25,
   shrinkY: 0,
   sprite: "diversetech-trap",
   backColor: Color.valueOf("ffffff"),
-  lightning: 3,
+  lightning: 1,
   collidesAir: false,
   collidesGround: true,
   collides: true,
   
   init(b){
     if(!b)return;
-    b.data = new Trail(5);
+    b.data = new Trail(4);
   },
   update(b){
     this.super$update(b);
@@ -26,7 +26,7 @@ const bAlloy = extend(BasicBulletType, {
   },
   draw(b){
     this.super$draw(b);
-    b.data.draw(Color.valueOf("ffffff"), 5);
+    b.data.draw(Color.valueOf("ffffff"), 4);
   }
 });
 
