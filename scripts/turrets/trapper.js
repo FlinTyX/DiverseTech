@@ -1,8 +1,8 @@
 const bAlloy = extend(BasicBulletType, {
   damage: 280,
-  speed: 8,
-  drag: 0.05,
-  lifetime: 360,
+  speed: 5,
+  drag: -0.01,
+  lifetime: 999,
   sprite: "diversetech-trap",
   backColor: Color.valueOf("ffffff"),
   lightning: 3,
@@ -17,36 +17,7 @@ const bAlloy = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y); 
-    b.rotation(b.rotation() + b.fin() * 360);
-  },
-  draw(b){
-    this.super$draw(b);
-    b.data.draw(Color.valueOf("ffffff"), 5);
-  }
-});
-
-const bNitinol = extend(BasicBulletType, {
-  damage: 195,
-  speed: 8,
-  drag: 0.05,
-  lifetime: 365,
-  sprite: "diversetech-trap",
-  backColor: Color.valueOf("ffffff"),
-  lightning: 3,
-  collidesAir: false,
-  collidesGround: false,
-  collides: true,
-
-  init(b){
-    if(!b)return;
-    b.data = new Trail(5);
-  },
-  update(b){
-    this.super$update(b);
-    b.data.update(b.x, b.y);
-    Timer.schedule(() => {
-      b.rotation(b.rotation() + 2);
-    }, 1)
+    b.rotation(b.rotation() + 2);
   },
   draw(b){
     this.super$draw(b);
@@ -67,8 +38,7 @@ const trapper = extend(ItemTurret, "trapper", {
 
   init(){
     this.ammo(
-      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bAlloy,
-      Vars.content.getByName(ContentType.item, "diversetech-nitinol"), bNitinol
+      Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bAlloy
     );
     this.super$init();
   }
