@@ -111,7 +111,7 @@ const  bullet1  = extend(BasicBulletType, {
 const turret = extend(ItemTurret, "magma", {
   shots: 3,
   range: 290,
-  reloadTime: 350,
+  reloadTime: 275,
   shootShake: 5,
   recoilAmount: 2,
   shootCone: 10,
