@@ -16,8 +16,8 @@ const bAlloy = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y);
-    if(b.rotation() <= b.fin() * 1000){
-      b.rotation(b.fin() * 1000);
+    if(b.rotation() <= b.fin() * 1900){
+      b.rotation(b.fin() * 1900);
     }
   },
   draw(b){
