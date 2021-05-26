@@ -1,32 +1,33 @@
 const bAlloy = extend(BasicBulletType, {
   damage: 280,
   speed: 7,
-  drag: 0.035,
-  lifetime: 420,
-  width: 17,
-  height: 17,
+  drag: 0.04,
+  lifetime: 440,
+  width: 19,
+  height: 19,
   shrinkY: 0,
   sprite: "large-bomb",
-  backColor: Color.valueOf("f2f2f2"),
-  lightning: 1,
+  backColor: Color.valueOf("f3f3f3"),
+  lightning: 0.2,
   collidesAir: false,
   collidesGround: true,
   collides: true,
   
   init(b){
     if(!b)return;
-    b.data = new Trail(4);
+    b.data = new Trail(2);
   },
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y);
+    if(Mathf.chance(0.05)) b.drag = 0.04 + Math.random(-0.01, 0.03);
     Timer.schedule(() => {
-      b.rotation(b.rotation() + 3);
+      b.rotation(b.rotation() + 2);
     }, 1.09);
   },
   draw(b){
     this.super$draw(b);
-    b.data.draw(Color.valueOf("ffffff"), 4);
+    b.data.draw(Color.valueOf("f2f2f2"), 2);
   }
 });
 
