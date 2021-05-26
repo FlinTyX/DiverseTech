@@ -20,10 +20,11 @@ const bAlloy = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y);
-    if(Mathf.chance(0.05)) b.drag = 0.04 + Math.random(-0.01, 0.03);
+    let dragChance = b.drag + Math.random(-0.01, 0.03)
+    if(Mathf.chance(0.05)) b.drag = b.drag + Math.random(-0.01, 0.03);
     Timer.schedule(() => {
       b.rotation(b.rotation() + 2);
-    }, 1.09);
+    }, 1.09/b.drag * 1.09);
   },
   draw(b){
     this.super$draw(b);
