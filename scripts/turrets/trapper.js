@@ -7,7 +7,7 @@ const bAlloy = extend(BasicBulletType, {
   height: 17,
   shrinkY: 0,
   sprite: "diversetech-trap",
-  backColor: Color.valueOf("ffffff"),
+  backColor: Color.valueOf("f2f2f2"),
   lightning: 1,
   collidesAir: false,
   collidesGround: true,
@@ -33,7 +33,7 @@ const bAlloy = extend(BasicBulletType, {
 const trapper = extend(ItemTurret, "trapper", {
   shots: 3,
   range: 140,
-  reloadTime: 140,
+  reloadTime: 200,
   shootShake: 3,
   recoilAmount: 2,
   shootCone: 8,
