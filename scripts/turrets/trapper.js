@@ -3,8 +3,8 @@ const bAlloy = extend(BasicBulletType, {
   speed: 7,
   drag: 0.035,
   lifetime: 420,
-  width: 25,
-  height: 25,
+  width: 17,
+  height: 17,
   shrinkY: 0,
   sprite: "diversetech-trap",
   backColor: Color.valueOf("ffffff"),
@@ -22,7 +22,7 @@ const bAlloy = extend(BasicBulletType, {
     b.data.update(b.x, b.y);
     Timer.schedule(() => {
       b.rotation(b.rotation() + 3);
-    }, 1.02);
+    }, 1.1);
   },
   draw(b){
     this.super$draw(b);
