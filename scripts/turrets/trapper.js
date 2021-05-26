@@ -4,7 +4,7 @@ const bAlloy = extend(BasicBulletType, {
   drag: 0.03,
   lifetime: 400,
   width: 45,
-  heihgt: 45,
+  height: 45,
   sprite: "diversetech-trap",
   backColor: Color.valueOf("ffffff"),
   lightning: 3,
