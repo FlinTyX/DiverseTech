@@ -1,6 +1,6 @@
 const despawnB = extend(LightningBulletType, {
   shootEffect: Fx.none,
-  lightning: 10,
+  lightning: 6,
   lighningColor: Pal.lancerLaser,
   lightningLength: 20,
   lightningLengthRand: 5,
@@ -25,9 +25,10 @@ const orb = extend(BasicBulletType, {
   speed: 1.5,
   drag: 0.005,
   lifetime: 210,
-  width: 25,
-  height: 25,
-  shrinkY: 0,
+  width: 22,
+  height: 22,
+  shrinkY: 1,
+  shrinkX: 1,
   sprite: "diversetech-orb",
   backColor: Color.valueOf("f3f3f3"),
   lightning: 0.2,
@@ -38,22 +39,13 @@ const orb = extend(BasicBulletType, {
   fragBullets: 1,
   fragBullet: despawnB,
   
-  init(b){
-    if(!b)return;
-    b.data = new Trail(2);
-  },
   update(b){
     this.super$update(b);
-    b.data.update(b.x, b.y);
     if(Mathf.chance(0.2)){
       lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
       if(Mathf.chance(0.2)) Effect.shake(6, 10, b.x, b.y);
     }
-  },
-  draw(b){
-    this.super$draw(b);
-    b.data.draw(Color.valueOf("f2f2f2"), 2);
-  } 
+  }
 });
 
 const overvoltage = extend(PowerTurret, "overvoltage", {
