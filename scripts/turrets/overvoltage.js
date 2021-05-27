@@ -49,6 +49,7 @@ const trapper = extend(PowerTurret, "overvoltage", {
   shootCone: 6,
   inaccuracy: 2,
   rotateSpeed: 2.5,
+  shootType: orb,
   powerUse: 11
 });
 
