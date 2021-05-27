@@ -6,7 +6,7 @@ const despawnB = extend(LightningBulletType, {
   lightningLengthRand: 5,
   lightningDamage: 30,
   lightningCone: 360,
-  lightningAngle: 360
+  lightningAngle: 10
 });
 
 const lightB = extend(LightningBulletType, {
@@ -17,7 +17,7 @@ const lightB = extend(LightningBulletType, {
   lightningLengthRand: 5,
   lightningDamage: 15,
   lightningCone: 360,
-  lightningAngle: 15
+  lightningAngle: 10
 });
 
 const orb = extend(BasicBulletType, {
@@ -34,6 +34,7 @@ const orb = extend(BasicBulletType, {
   collidesAir: true,
   collidesGround: true,
   collides: true,
+  splashRadius: 5,
   fragBullets: 1,
   fragBullet: despawnB,
   
@@ -71,8 +72,8 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
   updateTile(){
     this.super$updateTile();
     if(Mathf.chance(0.06)){
-      let rand = Math.floor(Mathf.range(6));
-      if(this.power.status >= 1) lightB.create(this, this.team, this.x + rand, this.y + rand, this.rotation - 180 + Mathf.range(60));
+      let rand = Mathf.range(this.rotation - 180 + 50);
+      if(this.power.status >= 1) lightB.create(this, this.team, this.x + Angles.trnsx(rand, 2), this.y + Angles.trnsy(rand, 2), rand);
     }
   }
 });
