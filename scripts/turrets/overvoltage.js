@@ -31,7 +31,7 @@ const orb = extend(BasicBulletType, {
     this.super$update(b);
     b.data.update(b.x, b.y);
     if(Mathf.chance(0.2)){
-      lightB.create(b.owner, b.team, b.x, b.y, b.rotation());
+      lightB.create(b.owner, b.team, b.x, b.y, b.rotation() + Mathf.range(360));
     }
   },
   draw(b){
@@ -58,7 +58,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
     this.super$updateTile();
     if(Mathf.chance(0.1)){
       let rand = Math.floor(Mathf.range(6));
-      lightB.create(this.owner, this.team, this.x + rand, this.y + rand, this.rotation);
+      lightB.create(this, this.team, this.x + rand, this.y + rand, this.rotation + Mathf.range(360));
     }
   }
 });
