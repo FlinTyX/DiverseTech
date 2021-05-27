@@ -73,7 +73,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
   updateTile(){
     this.super$updateTile();
     if(Mathf.chance(0.06)){
-      let rand = Mathf.range(this.rotation - 180 + 50);
+      let rand = this.rotation - 180 + Mathf.range(50);
       if(this.power.status >= 1) lightB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
       if(Mathf.chance(0.2)) Effect.shake(8, 10, this.x, this.y);
     }
