@@ -58,7 +58,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
     this.super$updateTile();
     if(Mathf.chance(0.1)){
       let rand = Math.floor(Mathf.range(6));
-      lightB.create(b.owner, b.team, this.x + rand, this.y + rand, this.rotation);
+      lightB.create(this.owner, this.team, this.x + rand, this.y + rand, this.rotation);
     }
   }
 });
