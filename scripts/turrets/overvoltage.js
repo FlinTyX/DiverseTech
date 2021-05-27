@@ -58,7 +58,8 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
   inaccuracy: 2,
   rotateSpeed: 2.5,
   shootType: orb,
-  powerUse: 11
+  powerUse: 11,
+  shootLength: 10
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
