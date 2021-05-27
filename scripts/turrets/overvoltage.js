@@ -71,13 +71,11 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
       lightB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
     }
   },
-  shoot(type){
-    type.create(this, this.team, this.x + Angles.trnsx(this.rotation, 20), this.y + Angles.trnsy(this.rotation, 20), this.rotation);                       
+  ejectsEffects(){
+    this.super$ejectEffects();
     for(let i = 0; i < Math.random(8, 12); i++){
       let bRand = this.rotation - 180 + Mathf.range(40);
       lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
     }
-    this.effects();
-    this.super$shoot(type);
   }
 });
