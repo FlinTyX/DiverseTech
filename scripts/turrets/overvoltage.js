@@ -5,16 +5,16 @@ const lightB = extend(LightningBulletType, {
   lightningLengthRand: 5,
   lightningDamage: 10,
   lightningCone: 360,
-  lightningAngle: 20,
+  lightningAngle: 360,
 });
 
 const orb = extend(BasicBulletType, {
-  damage: 220,
-  speed: 5,
-  drag: 0.001,
+  damage: 120,
+  speed: 2.5,
+  drag: -0.005,
   lifetime: 110,
-  width: 20,
-  height: 20,
+  width: 30,
+  height: 30,
   shrinkY: 0,
   sprite: "large-bomb",
   backColor: Color.valueOf("f3f3f3"),
@@ -56,8 +56,8 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
   updateTile(){
     this.super$updateTile();
-    if(this.power.status >= 8 && Mathf.chance(0.09)){
-      let rand = Math.floor(Mathf.range(10));
+    if(this.power.status > 1 && Mathf.chance(0.1)){
+      let rand = Math.floor(Mathf.range(6));
       lightB.create(b.owner, b.team, this.x + rand, this.y + rand, this.rotation);
     }
   }
