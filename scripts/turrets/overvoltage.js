@@ -10,13 +10,13 @@ const lightB = extend(LightningBulletType, {
 
 const orb = extend(BasicBulletType, {
   damage: 190,
-  speed: 1.7,
+  speed: 1.5,
   drag: 0.005,
-  lifetime: 200,
+  lifetime: 210,
   width: 25,
   height: 25,
   shrinkY: 0,
-  sprite: "large-bomb",
+  sprite: "diversetech-orb",
   backColor: Color.valueOf("f3f3f3"),
   lightning: 0.2,
   collidesAir: true,
