@@ -38,9 +38,9 @@ const orb = extend(BasicBulletType, {
   
   update(b){
     this.super$update(b);
-    if(Mathf.chance(0.28)){
+    if(Mathf.chance(0.3)){
       lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
-      if(Mathf.chance(0.23)) Effect.shake(6, 10, b.x, b.y);
+      if(Mathf.chance(0.25)) Effect.shake(6, 10, b.x, b.y);
     }
   },
   despawned(b){
@@ -70,11 +70,12 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
       let rand = this.rotation - 180 + Mathf.range(40);
       lightB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
     }
-    if(this.isShooting() && this.power.status >= 1){
-      for(let i = 0; i < Math.random(6, 10); i++){
-        let bRand = this.rotation - 180 + Mathf.range(40);
-        lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
-      }
+  },
+  shoot(type){
+    type.create(this, this.team, this.x + Angles.trnsx(this.rotation, 20), this.y + Angles.trnsy(this.rotation, 20), this.rotation);                       
+    for(let i = 0; i < Math.random(8, 12); i++){
+      let bRand = this.rotation - 180 + Mathf.range(40);
+      lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
     }
   }
 });
