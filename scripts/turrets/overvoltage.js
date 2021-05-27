@@ -77,5 +77,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
       let bRand = this.rotation - 180 + Mathf.range(40);
       lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
     }
+    this.effects();
+    this.super$shoot(type);
   }
 });
