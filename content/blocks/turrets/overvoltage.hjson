@@ -1,0 +1,20 @@
+localizedName: Trapper
+description: Test.
+size: 4
+hasItems: false
+hasPower: true
+hasLiquids: false
+health: 3000
+update: true
+solid: true
+targetGround: true
+targetAir: true
+
+requirements: [
+  surge-alloy/500
+  hyper-alloy/410
+  nitinol/290
+]
+
+category: turret
+research: mist
