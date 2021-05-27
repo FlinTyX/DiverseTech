@@ -45,6 +45,7 @@ const orb = extend(BasicBulletType, {
   },
   despawned(b){
     for(let i = 0; i < Math.random(4); i++) despawnB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
+  }
 });
 
 const overvoltage = extend(PowerTurret, "overvoltage", {
