@@ -22,7 +22,7 @@ const bAlloy = extend(BasicBulletType, {
     b.data.update(b.x, b.y);
     if(Mathf.chance(0.05)){
       b.drag = b.drag + Math.random(-0.009, 0.023);
-      b.vel.len(b.vel.vel() - b.drag * 100);
+      b.vel.len(b.vel.len() - b.drag * 100);
     }
   },
   draw(b){
