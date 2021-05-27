@@ -40,7 +40,7 @@ const orb = extend(BasicBulletType, {
   }
 });
 
-const trapper = extend(PowerTurret, "overvoltage", {
+const overvoltage = extend(PowerTurret, "overvoltage", {
   shots: 1,
   range: 190,
   reloadTime: 305,
