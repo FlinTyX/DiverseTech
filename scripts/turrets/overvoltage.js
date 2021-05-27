@@ -62,24 +62,20 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
-  placed(){
-    this.super$placed();
-    rand = this.rotation - 180;
-  },
   updateTile(){
     //this is so painful please kill me
     this.super$updateTile();
     if(Mathf.chance(0.06) && this.power.status >= 1){
       if(Mathf.chance(0.25)) Effect.shake(8, 10, this.x, this.y);
-      rand = this.rotation - 180 + Mathf.range(50);
+      let rand = this.rotation - 180 + Mathf.range(50);
       lightB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
     }
   },
   shoot(type){
     type.create(this, this.team, this.x, this.y, this.rotation);
     for(let i = 0; i < Math.random(6, 10); i++){
-      rand = this.rotation - 180 + Mathf.range(50);
-      lightB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
+      let bRand = this.rotation - 180 + Mathf.range(50);
+      lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
     }
   }
 });
