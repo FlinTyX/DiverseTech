@@ -70,9 +70,9 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
   updateTile(){
     this.super$updateTile();
     if(spawned && this.power.status >= 1){
-      for(let i = 0; i < 10; i++){
+      for(let i = 0; i < 8; i++){
         let bRand = this.rotation - 180 + Mathf.range(40);
-        hB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
+        lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
       }
       spawned = false;
     }
