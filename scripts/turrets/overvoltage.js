@@ -1,16 +1,14 @@
-const despawnB = extend(LightningBulletType, {
-  shootEffect: Fx.none,
-  lightning: 6,
+const lightB = extend(LightningBulletType, {
+  lightning: 4,
   lighningColor: Pal.lancerLaser,
-  lightningLength: 20,
+  lightningLength: 15,
   lightningLengthRand: 5,
   lightningDamage: 30,
   lightningCone: 360,
   lightningAngle: 10
 });
 
-const lightB = extend(LightningBulletType, {
-  shootEffect: Fx.none,
+const hB = extend(LightningBulletType, {
   lightning: 3,
   lighningColor: Pal.lancerLaser,
   lightningLength: 13,
@@ -36,9 +34,16 @@ const orb = extend(BasicBulletType, {
   collidesGround: true,
   collides: true,
   
+  init(b){
+    if(!b) return;
+    for(let i = 0; i < Math.random(8, 10); i++){
+      let bRand = this.rotation - 180 + Mathf.range(40);
+      hB.create(this, this.team, this.x + Angles.trnsx(bRand, 20), this.y + Angles.trnsy(bRand, 20), bRand);
+    }
+  },
   update(b){
     this.super$update(b);
-    if(Mathf.chance(0.3)){
+    if(Mathf.chance(0.32)){
       lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
       if(Mathf.chance(0.25)) Effect.shake(6, 10, b.x, b.y);
     }
@@ -69,7 +74,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
     if(Mathf.chance(0.06) && this.power.status >= 1){
       if(Mathf.chance(0.25)) Effect.shake(8, 10, this.x, this.y);
       let rand = this.rotation - 180 + Mathf.range(40);
-      lightB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
+      hB.create(this, this.team, this.x + Angles.trnsx(rand, 20), this.y + Angles.trnsy(rand, 20), rand);
     }
   }
 });
