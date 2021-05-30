@@ -3,7 +3,9 @@ let scripts = Seq.with(
   //blocks
   "blocks/fusion-machine", "blocks/quantum-former",
   //turrets
-  "turrets/mist", "turrets/magma", "turrets/overvoltage"
+  "turrets/mist", "turrets/magma", "turrets/overvoltage", 
+  //libs
+  "libs/functions"
 );
 scripts.each(e => {
   require(e);
