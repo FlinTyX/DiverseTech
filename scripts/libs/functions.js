@@ -17,3 +17,8 @@ function alphaPlus(alpha, n){
     }
     return alpha;
 }
+
+module.exports = {
+    plusRot : plusRot,
+    alphaPlus : alphaPlus
+};
