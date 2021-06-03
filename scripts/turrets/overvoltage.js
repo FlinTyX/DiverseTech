@@ -124,7 +124,8 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
   powerUse: 16,
   boostMultiplier: 0.2,
   shootSound: Sounds.shotgun,
-  shootLength: 15
+  shootLength: 15,
+  coolantMultiplier: 0.2
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
