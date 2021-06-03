@@ -1,3 +1,8 @@
+/*
+you, yes you, be aware that these 240 lines of pure garbage were made by someone who doesnt know how to code well
+if you dont like bad codes get out please
+*/
+
 const fc = require("libs/functions");
 let despawned = false;
 let spawned = false;
