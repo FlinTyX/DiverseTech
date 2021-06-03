@@ -109,7 +109,7 @@ const mist = extend(PowerTurret, "mist", {
   rotateSpeed: 4,
   shootShake: 6,
   recoilAmount: 5,
-  coolantMultiplier: 0.6,
+  coolantMultiplier: 0.4,
   restitution: 0.009,
   cooldown: 0.03
 });
