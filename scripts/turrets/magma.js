@@ -118,6 +118,7 @@ const turret = extend(ItemTurret, "magma", {
   spread: 30,
   inaccuracy: 15,
   rotateSpeed: 3,
+  coolantMultiplier: 0.8,
   shootType: bullet1,
   
   init(){
