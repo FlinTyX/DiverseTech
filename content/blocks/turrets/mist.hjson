@@ -1,10 +1,10 @@
 localizedName: Mist
-description: Freezzzeeee
+description: Freezes the enemy. 
 size: 3
 hasItems: false
 hasPower: true
 hasLiquids: true
-health: 4000
+health: 2380
 targetGround: true
 targetAir: true
 update: true
@@ -23,7 +23,7 @@ consumes: {
 requirements: [
   copper/800
   metaglass/250
-  nitinol/700
+  nitinol/550
   silicon/650
 ]
 
