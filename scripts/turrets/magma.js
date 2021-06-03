@@ -49,7 +49,7 @@ const hitFx = new Effect(30, e => {
 });
 
 const fragB1 = extend(BasicBulletType, {
-  damage: 95,
+  damage: 80,
   speed: 4.5,
   lifetime: 80,
   height: 23,
@@ -111,7 +111,7 @@ const  bullet1  = extend(BasicBulletType, {
 const turret = extend(ItemTurret, "magma", {
   shots: 3,
   range: 290,
-  reloadTime: 155,
+  reloadTime: 160,
   shootShake: 5,
   recoilAmount: 2,
   shootCone: 10,
