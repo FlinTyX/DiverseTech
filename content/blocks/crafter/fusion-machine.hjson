@@ -14,7 +14,7 @@ ambientSound: machine
 ambientSoundVolume: 0.7
 
 consumes: {
-  power: 1.4
+  power: 3
   items: {
     items: [
       nitinol/1
