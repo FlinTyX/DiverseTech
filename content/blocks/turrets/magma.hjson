@@ -15,7 +15,7 @@ ammoPerShot: 10
 consumes: {
   liquid: {
     liquid: water
-    amount: 0.5
+    amount: 0.6
     booster: false
     optional: false
   }
