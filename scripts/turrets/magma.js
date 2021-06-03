@@ -70,15 +70,15 @@ const fragB1 = extend(BasicBulletType, {
   
   init(b){
     if(!b)return;
-    b.data = new Trail(10);
+    b.data = new Trail(15); //length
   },
   update(b){
     this.super$update(b);
     b.data.update(b.x, b.y);
   },
   draw(b){
-    this.super$draw(b);
-    b.data.draw(Color.valueOf("ffc999"), 4);
+    b.data.draw(Color.valueOf("ffc999"), 2); //width
+    this.super$draw(b); //load the bullet after the trail so that the trail appears under it, dingus
   }
 });
 
@@ -102,6 +102,8 @@ const  bullet1  = extend(BasicBulletType, {
   shrinkY: 0,
   sprite: "diversetech-smallArrow",
   backColor: Color.valueOf("ffc999"),
+  
+  fragVelocityMin : 0.7,
   
   //fx
   shootEffect: shootFx,
