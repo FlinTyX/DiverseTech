@@ -15,7 +15,7 @@ hasPower: true
 hasLiquids: false
 
 consumes: {
-  power: 0.7
+  power: 1
   items: {
     items: [
       lead/3
