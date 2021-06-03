@@ -1,10 +1,10 @@
-localizedName: Trapper
-description: Test.
+localizedName: Overvoltage
+description: Shots an electric orb that destroys everything.
 size: 4
 hasItems: false
 hasPower: true
 hasLiquids: false
-health: 3000
+health: 2900
 update: true
 solid: true
 targetGround: true
