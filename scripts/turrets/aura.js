@@ -114,7 +114,7 @@ const orb = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
 
-    if(Mathf.chance(0.4)){
+    if(Mathf.chance(0.45)){
       lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
       if(Mathf.chance(0.4)) Effect.shake(6, 10, b.x, b.y);
       if(Mathf.chance(0.6)) Sounds.spark.at(b.x, b.y);
@@ -137,18 +137,18 @@ const orb = extend(BasicBulletType, {
 const aura = extend(PowerTurret, "aura", {
   shots: 1,
   range: 240,
-  reloadTime: 340,
-  shootShake: 10,
-  recoilAmount: 4,
+  reloadTime: 335,
+  shootShake: 15,
+  recoilAmount: 6,
   shootCone: 6,
   inaccuracy: 2,
-  rotateSpeed: 2.5,
+  rotateSpeed: 2,
   shootType: orb,
   powerUse: 32,
-  boostMultiplier: 0.2,
+  coolantMultiplier: 0.1,
+  coolantUsage: 2.4,
   shootSound: Sounds.shotgun,
-  shootLength: 30,
-  coolantMultiplier: 0.1
+  shootLength: 30
 });
 
 aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
@@ -158,7 +158,6 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
         this.rotBoost = 2.5;
         this.length = 30;
         this.shootingTimer = 0;
-        this.bTimer = 0;
     },
     updateTile(){
         this.super$updateTile();
@@ -206,7 +205,7 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
         if(this.power.status >= 1) this.rot = fc.plusRot(this.rot, 1.5 + this.rotBoost);
 
         if(this.isShooting()){
-            if(this.length > 30) this.length = this.length - this.length/16;
+            if(this.length > 25) this.length = this.length - this.length/16;
             this.rotBoost = 2.5;
         } else {
             if(this.rotBoost > 0) this.rotBoost = this.rotBoost - this.rotBoost/3;
