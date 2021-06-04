@@ -90,12 +90,12 @@ const mBullet = extend(PointBulletType, {
   shootEffect: sFx,
   despawnEffect: dpFx,
   smokeEffect: Fx.smokeCloud,
-  trailSpacing: 50,
-  damage: 445,
+  trailSpacing: 42,
+  damage: 265,
   speed: 455,
   status: ice,
   statusDuration: 60 * 3.5,
-  hitShake: 6
+  hitShake: 5
 });
 
 //turret
@@ -106,10 +106,10 @@ const mist = extend(PowerTurret, "mist", {
   shootCone: 2,
   shootSound: Sounds.railgun,
   reloadTime: 225,
-  rotateSpeed: 4,
-  shootShake: 6,
+  rotateSpeed: 3.2,
+  shootShake: 5,
   recoilAmount: 5,
-  coolantMultiplier: 0.4,
+  coolantMultiplier: 0.3,
   restitution: 0.009,
   cooldown: 0.03
 });
