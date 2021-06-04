@@ -38,7 +38,7 @@ const dFx = new Effect(80, e => {
 
 const hFx = new Effect(30, e => {
   Draw.color(Pal.lancerLaser);
-  e.scaled(7, i => {
+  e.scaled(25, i => {
     Lines.stroke(3 * i.fout());
     Lines.circle(e.x, e.y, 4 + i.fin() * 60);
   });
@@ -86,10 +86,10 @@ const hB = extend(LightningBulletType, {
 });
 
 const orb = extend(BasicBulletType, {
-  damage: 335,
-  speed: 1.5,
+  damage: 365,
+  speed: 1.7,
   drag: 0.005,
-  lifetime: 300,
+  lifetime: 293,
   width: 30,
   height: 30,
   shrinkY: 0.1,
@@ -99,9 +99,11 @@ const orb = extend(BasicBulletType, {
   lightning: 0.2,
   collidesAir: true,
   collidesGround: true,
-  collides: true,
+  hittable: false,
   hitShake: 8,
   trailChance: 1,
+  pierce: true,
+  absorbable: false,
 
   //effects
   shootEffect: sFx,
@@ -114,7 +116,7 @@ const orb = extend(BasicBulletType, {
   update(b){
     this.super$update(b);
 
-    if(Mathf.chance(0.45)){
+    if(Mathf.chance(0.48)){
       lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
       if(Mathf.chance(0.4)) Effect.shake(6, 10, b.x, b.y);
       if(Mathf.chance(0.6)) Sounds.spark.at(b.x, b.y);
@@ -158,6 +160,12 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
         this.rotBoost = 2.5;
         this.length = 30;
         this.shootingTimer = 0;
+    },
+    onDestroyed(){
+      this.super$onDestroyed();
+      hFx.at(this.x, this.y);
+      Fx.massiveExplosion.at(this.x, this.y);
+      Effect.shake(20, 20, this.x, this.y);
     },
     updateTile(){
         this.super$updateTile();
