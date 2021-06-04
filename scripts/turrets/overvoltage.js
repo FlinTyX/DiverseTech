@@ -78,7 +78,8 @@ const orb = extend(BasicBulletType, {
   collidesAir: true,
   collidesGround: true,
   collides: true,
-  trailSpacing: 30,
+  hittable: false,
+  pierce: true,
   hitShake: 3,
 
   //effects
@@ -124,8 +125,7 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
   powerUse: 16,
   boostMultiplier: 0.2,
   shootSound: Sounds.shotgun,
-  shootLength: 15,
-  coolantMultiplier: 0.2
+  shootLength: 15
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
@@ -160,4 +160,3 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
     }
   }
 });
-
