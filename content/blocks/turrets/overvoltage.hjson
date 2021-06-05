@@ -11,10 +11,10 @@ targetGround: true
 targetAir: true
 
 requirements: [
-  surge-alloy/500
+  thorium/600
   hyper-alloy/410
   nitinol/290
 ]
 
 category: turret
-research: mist
+research: conductor
