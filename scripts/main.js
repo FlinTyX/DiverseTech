@@ -1,11 +1,12 @@
-//require stuff
 let scripts = Seq.with(
   //libs
   "libs/functions",
   //blocks
   "blocks/fusion-machine", "blocks/quantum-former",
-  //turrets
-  "turrets/mist", "turrets/magma", "turrets/overvoltage", "turrets/aura"
+  //turrets (yes it's organized)
+  "turrets/conductor", "turrets/overvoltage", "turrets/aura",
+  "turrets/mist",
+  "turrets/magma"
 );
 scripts.each(e => {
   require(e);
