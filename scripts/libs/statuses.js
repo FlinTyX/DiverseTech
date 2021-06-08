@@ -14,12 +14,6 @@ const ice = extend(StatusEffect, "ice", {
 });
 
 //exports
-let statuses = Seq.with(
-  ice
-);
-
-statuses.each(e => {
-  module.exports = {
-    e : e
-  }
-});
+module.exports = {
+  ice : ice
+};
