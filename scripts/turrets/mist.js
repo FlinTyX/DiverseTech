@@ -1,12 +1,4 @@
-
-//status effect Fx
-const iceFx = new Effect(35, e => {
-  Draw.color(Color.valueOf("f3f3f3"));
-  Lines.stroke(0.6);
-  Angles.randLenVectors(e.id, 10, 2 + 25 * e.finpow(), (x, y) => {
-    Lines.spikes(e.x+x, e.y+y, e.fout() * 0.5, 0.5, 8);
-  });
-});
+const statuses = require("libs/statuses");
 
 //despawn effect
 const dpFx = new Effect(35, e => {
@@ -74,15 +66,6 @@ const sFx = new Effect(40, e => {
   }
 });
 
-
-//status effect
-const ice = extend(StatusEffect, "ice", {});
-
-ice.damage = 0.2;
-ice.speedMultiplier = 0.1;
-ice.color = Color.white;
-ice.effect = iceFx;
-
 //bullet
 const mBullet = extend(PointBulletType, {
   hitEffect: hFx,
@@ -93,7 +76,7 @@ const mBullet = extend(PointBulletType, {
   trailSpacing: 42,
   damage: 265,
   speed: 455,
-  status: ice,
+  status: statuses.ice,
   statusDuration: 60 * 3.5,
   hitShake: 5
 });
