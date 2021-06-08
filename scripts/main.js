@@ -1,6 +1,6 @@
 let scripts = Seq.with(
   //libs
-  "libs/functions",
+  "libs/functions", "libs/statuses",
   //blocks
   "blocks/fusion-machine", "blocks/quantum-former",
   //turrets (yes it's organized)
