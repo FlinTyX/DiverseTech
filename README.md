@@ -1,7 +1,7 @@
 ![Logo](logo.png)
 
 ## The Mod:
-Innovate.\n
+Innovate.
 Research new innovative and interesting technologies that will help you to survive more waves and will make you feel excited to research more.
 
 ## v0.2:
