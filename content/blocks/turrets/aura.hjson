@@ -1,20 +1,20 @@
-localizedName: Aura
-description: The advanced Overvoltage. Does very much lightning.
 size: 7
 hasItems: false
 hasPower: true
 hasLiquids: false
-health: 4550
+health: 4500
 update: true
 solid: true
 targetGround: true
 targetAir: true
 
 requirements: [
-  titanium/480
+  copper/2000
+  silicon/1100
+  titanium/1080
   surge-alloy/1070
-  hyper-alloy/770
-  nitinol/1180
+  hyper-alloy/700
+  nitinol/1080
 ]
 
 category: turret

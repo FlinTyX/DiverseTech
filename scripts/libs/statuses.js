@@ -8,12 +8,34 @@ const iceFx = new Effect(35, e => {
 
 const ice = extend(StatusEffect, "ice", {
   damage: 0.2,
-  speedMultiplier: 0.1,
+  speedMultiplier: 0.2,
   color: Color.white,
   effect: iceFx,
+  transitionDamage: 2.8,
+  show: true,
+
+  init(){
+    this.super$init();
+
+    this.opposite(StatusEffects.melting, StatusEffects.burning);
+
+    this.affinity(StatusEffects.blasted, ((unit, result, time) => {
+      unit.damagePierce(this.transitionDamage);
+    }));
+  },
+  load(){
+    this.super$load();
+    this.region = Core.atlas.find(this.name);
+  },
+  icons(icon){
+    return this.reagion;
+  },
+  isHidden(){
+    return false;
+  }
 });
 
 //exports
 module.exports = {
   ice : ice
-};
+}

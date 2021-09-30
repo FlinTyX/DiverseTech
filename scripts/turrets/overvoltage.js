@@ -1,10 +1,9 @@
-let despawned = false;
-let spawned = false;
-
-const tFx = new Effect(60, e => {
+const deathEffect = new Effect(30, e => {
   Draw.color(Pal.lancerLaser);
-  Lines.stroke(1 + e.fout() * 2);
-  Lines.circle(e.x, e.y, e.fout() * 8);
+  e.scaled(20, i => {
+    Lines.stroke(2.2 * i.fout());
+    Lines.circle(e.x, e.y, 4 + i.fin() * 30);
+  });
 });
 
 const dFx = new Effect(80, e => {
@@ -41,122 +40,118 @@ const spark = new Effect(20, e => {
   });
 });
 
-const lightB = extend(LightningBulletType, {
-  lightning: 4,
-  lighningColor: Pal.lancerLaser,
-  lightningLength: 15,
-  lightningLengthRand: 5,
-  lightningDamage: 50,
-  lightningCone: 360,
-  lightningAngle: 10,
-  shootSound: Sounds.spark
-});
-
-const hB = extend(LightningBulletType, {
-  lightning: 3,
-  lighningColor: Pal.lancerLaser,
-  lightningLength: 10,
-  lightningLengthRand: 5,
-  lightningDamage: 15,
-  lightningCone: 360,
-  lightningAngle: 10,
-  shootSound: Sounds.spark
-});
-
 const orb = extend(BasicBulletType, {
-  damage: 205,
-  speed: 1.5,
-  drag: 0.005,
+  damage: 350,
+  speed: 1.1,
+  drag: 0.0052,
   lifetime: 210,
-  width: 22,
-  height: 22,
+  width: 20,
+  height: 20,
   shrinkY: 0.1,
   shrinkX: 0.1,
   sprite: "diversetech-orb",
   backColor: Color.valueOf("f3f3f3"),
-  lightning: 0.2,
-  collidesAir: true,
-  collidesGround: true,
-  collides: true,
-  hittable: false,
-  pierce: true,
-  hitShake: 3,
 
-  //effects
+  lightning: 5,
+  collides: false,
+  hittable: false,
+  hitShake: 4,
+  pierce: true,
+  absorbable: false,
+  reflectable: false,
+
+  homingPower: 0.038,
+  homingRange: 40,
+
+  trailColor: Pal.lancerLaser,
+  trailWidth: 3,
+  trailLength: 15,
+
   shootEffect: Fx.none,
-  trailEffect: tFx,
-  
-  init(b){
-    if(!b) return;
-    spawned = true;
-  },
+
   update(b){
     this.super$update(b);
-    if(Mathf.chance(0.4)){
-      lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
-      if(Mathf.chance(0.22)) Effect.shake(6, 10, b.x, b.y);
-      Sounds.spark.at(b.x, b.y);
+
+    if(Mathf.chanceDelta(0.4)){
+      Lightning.create(b.team, Pal.lancerLaser, 10, b.x, b.y, Math.random() * 360, 12.5);
+
+      if(Mathf.chanceDelta(0.1)) Effect.shake(3, 5, b.x, b.y);
+      if(Mathf.chanceDelta(0.08)) Sounds.spark.at(b.x, b.y, 0, Math.random()/2);
     }
   },
   hit(b){
     hFx.at(b.x, b.y);
   },
   despawned(b){
-    despawned = true;
     dFx.at(b.x, b.y);
-    Effect.shake(10, 15, b.x, b.y);
-    for(let i = 0; i < 10; i++){
-      if(i < 5) Sounds.spark.at(b.x, b.y);
-      lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
+
+    Sounds.explosionbig.at(b.x, b.y);
+    Effect.shake(8, 15, b.x, b.y);
+
+    for(let i = 0; i < 15; i++){
+      b.owner.block.buildType.get().chanceSpark(b.x, b.y, 5, Math.random() * 360, 12.5 + (Math.random() * 3), 0.05, false);
     }
   }
+
 });
 
 const overvoltage = extend(PowerTurret, "overvoltage", {
   shots: 1,
-  range: 190,
-  reloadTime: 300,
+  range: 150,
+  reloadTime: 290,
   shootShake: 6,
   recoilAmount: 4,
   shootCone: 6,
   inaccuracy: 2,
   rotateSpeed: 2.5,
   shootType: orb,
-  powerUse: 16,
+  powerUse: 13.8,
   boostMultiplier: 0.2,
   shootSound: Sounds.shotgun,
   shootLength: 15
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
+  chanceSpark(x, y, damage, rotation, length, chance, shake){
+    Time.run(Math.random() * 32, () => {
+      if(Mathf.chanceDelta(chance)){
+        if(shake) Effect.shake(3, 8, x, y);
+        Sounds.spark.at(x, y, 0, Math.random()/2);
+      }
+
+      Lightning.create(this.team, Pal.lancerLaser,damage, x, y, rotation, length);
+    });
+  },
+  onDestroyed(){
+    this.super$onDestroyed();
+
+    tFx.at(this.x, this.y);
+    Fx.massiveExplosion.at(this.x, this.y);
+    Effect.shake(25, 20, this.x, this.y);
+  },
   updateTile(){
     this.super$updateTile();
-    if(spawned && this.power.status >= 1){
-      for(let i = 0; i < 12; i++){
-        let tTime = Math.random(0.4);
-        Timer.schedule(() => {
-          if(Mathf.chance(0.4)) Sounds.spark.at(this.x, this.y);
-          let bRand = this.rotation - 180 + Mathf.range(40);
-          lightB.create(this, this.team, this.x + Angles.trnsx(bRand, 18), this.y + Angles.trnsy(bRand, 18), bRand);
-        }, tTime);
-      }
-      spawned = false;
-    }
+    if(this.power.status < 0.99 || Mathf.chanceDelta(0.4)) return;
+    
+    let rand = this.rotation - 180 + Mathf.range(35);
+    Tmp.v1.trns(rand, overvoltage.shootLength).add(this.x, this.y);
 
-    if(Mathf.chance(0.05) && this.power.status >= 1){
-      if(Mathf.chance(0.15) && this.health >= this.maxHealth/4) Effect.shake(8, 10, this.x, this.y);
-
-      let rand = this.rotation - 180 + Mathf.range(40);
-      let x = this.x + Angles.trnsx(rand, 18);
-      let y = this.y + Angles.trnsy(rand, 18);
-
-      if(this.health >= this.maxHealth/4){
-        hB.create(this, this.team, x, y, rand);
-        Sounds.spark.at(this.x, this.y);
+    if(Mathf.chanceDelta(0.1)){
+      if(this.health > this.maxHealth/5){
+        this.chanceSpark(Tmp.v1.x, Tmp.v1.y, 2, rand, 10, 0.7, false);
       } else {
-        spark.at(x, y, this.rotation - 180);
         Sounds.plasmaboom.at(this.x, this.y);
+        spark.at(Tmp.v1.x, Tmp.v1.y, this.rotation - 180);
       }
     }
-  }
+  },
+  shoot(type){
+    this.super$shoot(type);
+    for(let i = 0; i < 12; i++){
+      let rot = this.rotation - 180 + Mathf.range(35);
+      Tmp.v2.trns(rot, aura.lightLength).add(this.x, this.y);
+
+      this.chanceSpark(Tmp.v2.x, Tmp.v2.y, 6, rot, 13 + Math.random(), 0.3, true);
+    }
+  },
 });

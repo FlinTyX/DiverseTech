@@ -1,8 +1,3 @@
-const fc = require("libs/functions");
-let despawned = false;
-let spawned = false;
-let lightLength = 30;
-
 const tFx = new Effect(40, e => {
   Draw.color(Pal.lancerLaser);
   Lines.stroke(1 + e.fout() * 2);
@@ -58,33 +53,11 @@ const spark = new Effect(20, e => {
   });
 });
 
-const lightB = extend(LightningBulletType, {
-  lightning: 5,
-  lighningColor: Pal.lancerLaser,
-  lightningLength: 25,
-  lightningLengthRand: 5,
-  lightningDamage: 50,
-  lightningCone: 360,
-  lightningAngle: 15,
-  shootSound: Sounds.spark
-});
-
-const hB = extend(LightningBulletType, {
-  lightning: 1,
-  lighningColor: Pal.lancerLaser,
-  lightningLength: 6,
-  lightningLengthRand: 5,
-  lightningDamage: 25,
-  lightningCone: 360,
-  lightningAngle: 10,
-  shootSound: Sounds.spark
-});
-
-const orb = extend(BasicBulletType, {
-  damage: 455,
-  speed: 1.7,
-  drag: 0.005,
-  lifetime: 293,
+let orb = extend(BasicBulletType, {
+  damage: 1560, //stat only
+  speed: 1.8,
+  drag: 0.0052,
+  lifetime: 295,
   width: 30,
   height: 30,
   shrinkY: 0.1,
@@ -92,41 +65,47 @@ const orb = extend(BasicBulletType, {
   sprite: "diversetech-orb",
   backColor: Color.valueOf("f3f3f3"),
   lightning: 10,
-  collidesAir: true,
-  collidesGround: true,
+  collides: false,
   hittable: false,
   hitShake: 10,
   trailChance: 1,
   pierce: true,
   absorbable: false,
+  reflectable: false,
 
-  //effects
+  homingPower: 0.045,
+  homingRange: 40,
+
+  trailColor: Pal.lancerLaser,
+  trailWidth: 2.2,
+  trailLength: 10,
+  
   shootEffect: sFx,
   trailEffect: tFx,
   
-  init(b){
-    if(!b) return;
-    spawned = true;
-  },
   update(b){
     this.super$update(b);
 
-    if(Mathf.chance(0.48)){
-      lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
-      if(Mathf.chance(0.4)) Effect.shake(6, 10, b.x, b.y);
-      if(Mathf.chance(0.6)) Sounds.spark.at(b.x, b.y);
+    if(Mathf.chanceDelta(0.5)){
+      Lightning.create(b.team, Pal.lancerLaser, 43, b.x, b.y, Math.random() * 360, 16);
+
+      if(Mathf.chanceDelta(0.1)) Effect.shake(3, 5, b.x, b.y);
+      if(Mathf.chanceDelta(0.08)) Sounds.spark.at(b.x, b.y, 0, Math.random()/2);
     }
   },
   hit(b){
     hFx.at(b.x, b.y);
   },
   despawned(b){
-    despawned = true;
     dFx.at(b.x, b.y);
-    Effect.shake(25, 40, b.x, b.y);
-    for(let i = 0; i < 10; i++){
-      if(i < 5) Sounds.spark.at(b.x, b.y);
-      lightB.create(b.owner, b.team, b.x, b.y, Mathf.range(360));
+
+    Sounds.explosionbig.at(b.x, b.y);
+    Sounds.bang.at(b.x, b.y);
+    Sounds.explosion.at(b.x, b.y);
+    Effect.shake(20, 35, b.x, b.y);
+
+    for(let i = 0; i < 15; i++){
+      if(b.owner != null) b.owner.block.buildType.get().chanceSpark(b.x, b.y, 28, Math.random() * 360, 17 + (Math.random() * 5), 0.05, false);
     }
   }
 });
@@ -135,108 +114,118 @@ const aura = extend(PowerTurret, "aura", {
   shots: 1,
   range: 240,
   reloadTime: 340,
-  shootShake: 20,
+  shootShake: 12,
   recoilAmount: 12,
   shootCone: 6,
-  inaccuracy: 3,
+  inaccuracy: 8,
   rotateSpeed: 1.2,
   shootType: orb,
   powerUse: 32,
   coolantMultiplier: 0.1,
   coolantUsage: 2.4,
   shootSound: Sounds.shotgun,
-  shootLength: 30
+  shootLength: 30,
+
+  lightLength: 29,
+
+  load(){
+    this.spinnerRegion = Core.atlas.find(this.name + "-spinner");
+    this.super$load();
+  }
 });
 
 aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
-    setVars(){
-      this.rot = 0;
-      this.rotBoost = 2.5;
-      this.length = 20;
-      this.shootingTimer = 0;
-    },
-    onDestroyed(){
-      this.super$onDestroyed();
-      hFx.at(this.x, this.y);
-      Fx.massiveExplosion.at(this.x, this.y);
-      Effect.shake(20, 20, this.x, this.y);
-    },
-    updateTile(){
-      this.super$updateTile();
-      if(!this.rot || !this.length) this.setVars(); //checking undefined variables
-      if(this.power.status >= 0.5) this.rot = fc.plusRot(this.rot, (Time.delta * 2 + this.rotBoost) * this.power.status);
-      
-      this.trX = this.x + Angles.trnsx(this.rotation, (this.block.shootLength + 2) - this.recoil);
-      this.trY = this.y + Angles.trnsy(this.rotation, (this.block.shootLength + 2) - this.recoil);
-        
-      if(spawned && this.power.status == 1){
-        spawned = false;
-        for(let i = 0; i < 12; i++){
-          Timer.schedule(() => {
-            if(Mathf.chance(0.4)) Sounds.spark.at(this.x, this.y);
-            if(!Vars.state.isPaused()){
+  shootTimer: 0,  
+  rot: 0,
+  rotBoost: 0,
+  length: 20,
 
-            let rand = this.rotation - 180 + Mathf.range(40);
-            lightB.create(this, this.team, this.x + Angles.trnsx(rand, lightLength), this.y + Angles.trnsy(rand, lightLength), rand);
-
-            }
-          }, Math.random(0.35));
-        }
+  chanceSpark(x, y, damage, rotation, length, chance, shake){
+    Time.run(Math.random() * 35, () => {
+      if(Mathf.chanceDelta(chance)){
+        if(shake) Effect.shake(3, 8, x, y);
+        Sounds.spark.at(x, y, 0, Math.random()/2);
       }
 
-      if(Mathf.chance(0.06) && this.power.status == 1 || spawned && this.power.status == 1){
+      Lightning.create(this.team, Pal.lancerLaser,damage, x, y, rotation, length);
+    });
+  },
+  onDestroyed(){
+    this.super$onDestroyed();
 
-        let rand = this.rotation - 180 + Mathf.range(40);
-        let x = this.x + Angles.trnsx(rand, lightLength);
-        let y = this.y + Angles.trnsy(rand, lightLength);
+    hFx.at(this.x, this.y);
+    Fx.massiveExplosion.at(this.x, this.y);
+    Effect.shake(25, 20, this.x, this.y);
+  },
+  updateTile(){
+    this.super$updateTile();
+    this.rot >= 360 - Time.delta * this.rotBoost * this.power.status ? this.rot = 0 : this.rot += Time.delta * this.rotBoost * this.power.status;
 
-        if(this.health >= this.maxHealth/4){
-          if(Mathf.chance(0.05)) Effect.shake(8, 10, this.x, this.y);
-          lightB.create(this, this.team, x, y, rand);
-          Sounds.spark.at(this.x, this.y);
-        } else {
-          spark.at(x, y, this.rotation - 180);
-          Sounds.plasmaboom.at(this.x, this.y);
-        }
-      }
+    this.trX = this.x + Angles.trnsx(this.rotation, (this.block.shootLength + 2) - this.recoil);
+    this.trY = this.y + Angles.trnsy(this.rotation, (this.block.shootLength + 2) - this.recoil);
+    this.length = Mathf.lerpDelta(this.length, this.power.status > 0.99 ? this.isShooting() ? 20 : 24.5 : 20, 0.1);
 
-      this.shootingTimer = this.shootingTimer >= 31 ? 0 : this.shootingTimer + 1;
-      if(this.isShooting() && this.power.status == 1 && this.shootingTimer == 30) shootingFx.at(this.trX, this.trY);
+    if(this.isShooting() && this.power.status > 0.99){
 
-      if(this.isShooting() && this.power.status == 1){
-        this.length = Mathf.lerpDelta(this.length, 20, 0.1);
-        this.rotBoost = Mathf.lerpDelta(this.rotBoost, 3, 0.08);
-      } else {
-        this.rotBoost = Mathf.lerpDelta(this.rotBoost, 0, 0.03);
-      }
+      this.length = Mathf.lerpDelta(this.length, 20, 0.1);
+      this.rotBoost = Mathf.lerpDelta(this.rotBoost, 4.5, 0.15);
 
-      if(this.power.status == 1){
-        if(!this.isShooting()) this.length = Mathf.lerpDelta(this.length, 24, 0.1);
-      } else {
-        this.length = Mathf.lerpDelta(this.length, 20, 0.1);
-      }
-
-      if(spawned || this.power.status == 1 && Mathf.chance(0.05)){
-        if(spawned || this.isShooting() && Mathf.chance(0.15)) Effect.shake(8, 12, this.x, this.y);
-        for(let i = 0; i < 10; i++){
-          if(Mathf.chance(0.5)) Sounds.spark.at(this.trX, this.trY);
-          let iRot = this.rot + (36 * i);
-          hB.create(this, this.team, this.trX + Angles.trnsx(iRot, this.length + 5), this.trY + Angles.trnsy(iRot, this.length + 5), iRot + 5);
-        }
-      }
-    },
-    draw(){
-        this.super$draw();
-        this.thingRegion = Core.atlas.find("diversetech-aura-thing");
-        Draw.z(Layer.turret + 1)
-
-        for(let i = 0; i < 10; i++){
-            let iRot = this.rot + (36 * i);
-            let x = this.trX + Angles.trnsx(iRot, this.length);
-            let y = this.trY + Angles.trnsy(iRot, this.length);
-
-            Draw.rect(this.thingRegion, x, y, iRot + 90);
-            Drawf.shadow(this.thingRegion, x - 7, y - 7, iRot + 90);
-        }
+    } else {
+      if(this.rotBoost > 0.1) this.rotBoost = Mathf.lerpDelta(this.rotBoost, 0, 0.1);
     }
+
+    if(this.power.status < 0.99 || Mathf.chanceDelta(0.4)) return;
+    
+    let rand = this.rotation - 180 + Mathf.range(35);
+    Tmp.v1.trns(rand, aura.lightLength).add(this.x, this.y);
+
+    if(Mathf.chanceDelta(0.1)){
+      if(this.health > this.maxHealth/5){
+        this.chanceSpark(Tmp.v1.x, Tmp.v1.y, 3, rand, 11, 0.7, false);
+      } else {
+        Sounds.plasmaboom.at(this.x, this.y);
+        spark.at(Tmp.v1.x, Tmp.v1.y, this.rotation - 180);
+      }
+    }
+
+    this.shootTimer += Time.delta;
+
+    if(this.isShooting()){
+
+      if(this.shootTimer > 10){
+        this.shootTimer = 0;
+        shootingFx.at(this.trX, this.trY);
+      }
+
+      this.length = Mathf.lerpDelta(this.length, 20, 0.1);
+      this.rotBoost = Mathf.lerpDelta(this.rotBoost, 4.5, 0.15);
+
+    } else {
+      this.rotBoost = Mathf.lerpDelta(this.rotBoost, 0, 0.1);
+    }
+  },
+  shoot(type){
+    this.super$shoot(type);
+    for(let i = 0; i < 12; i++){
+      let rot = this.rotation - 180 + Mathf.range(35);
+      Tmp.v2.trns(rot, aura.lightLength).add(this.x, this.y);
+
+      this.chanceSpark(Tmp.v2.x, Tmp.v2.y, 6, rot, 13 + Math.random(), 0.3, true);
+    }
+  },
+  draw(){
+      this.super$draw();
+      Draw.z(Layer.turret + 1);
+
+      for(let i = 0; i < 7; i++){
+          let rot = this.rot + ((360 / 7) * i);
+          let x = this.trX + Angles.trnsx(rot, this.length);
+          let y = this.trY + Angles.trnsy(rot, this.length);
+
+          Draw.rect(aura.spinnerRegion, x, y, rot + 90);
+          Draw.z(Layer.turret + 0.8);
+          Drawf.shadow(aura.spinnerRegion, x - 7, y - 7, rot + 90);
+      }
+      Draw.reset();
+  }
 });

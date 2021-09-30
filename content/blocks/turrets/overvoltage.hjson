@@ -1,19 +1,17 @@
-localizedName: Overvoltage
-description: Shots an electric orb that destroys everything.
 size: 4
 hasItems: false
 hasPower: true
 hasLiquids: false
-health: 2900
+health: 1810
 update: true
 solid: true
 targetGround: true
 targetAir: true
 
 requirements: [
-  thorium/600
-  hyper-alloy/410
-  nitinol/290
+  thorium/440
+  silicon/590
+  nitinol/525
 ]
 
 category: turret
