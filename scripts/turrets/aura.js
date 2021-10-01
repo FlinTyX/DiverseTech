@@ -53,6 +53,15 @@ const spark = new Effect(20, e => {
   });
 });
 
+const chanceSpark = (x, y, team, damage, rotation, length, chance, shake) => {
+  if(Mathf.chanceDelta(chance)){
+    if(shake) Effect.shake(3, 8, x, y);
+    Sounds.spark.at(x, y, 0, Math.random()/2);
+  }
+
+  Lightning.create(team, Pal.lancerLaser,damage, x, y, rotation, length);
+};
+
 let orb = extend(BasicBulletType, {
   damage: 1560, //stat only
   speed: 1.8,
@@ -105,7 +114,7 @@ let orb = extend(BasicBulletType, {
     Effect.shake(20, 35, b.x, b.y);
 
     for(let i = 0; i < 15; i++){
-      if(b.owner != null) b.owner.block.buildType.get().chanceSpark(b.x, b.y, 28, Math.random() * 360, 17 + (Math.random() * 5), 0.05, false);
+      chanceSpark(b.x, b.y, b.team, 28, Math.random() * 360, 17 + (Math.random() * 5), 0.05, false);
     }
   }
 });
@@ -140,16 +149,6 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
   rotBoost: 0,
   length: 20,
 
-  chanceSpark(x, y, damage, rotation, length, chance, shake){
-    Time.run(Math.random() * 35, () => {
-      if(Mathf.chanceDelta(chance)){
-        if(shake) Effect.shake(3, 8, x, y);
-        Sounds.spark.at(x, y, 0, Math.random()/2);
-      }
-
-      Lightning.create(this.team, Pal.lancerLaser,damage, x, y, rotation, length);
-    });
-  },
   onDestroyed(){
     this.super$onDestroyed();
 
@@ -181,7 +180,7 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
 
     if(Mathf.chanceDelta(0.1)){
       if(this.health > this.maxHealth/5){
-        this.chanceSpark(Tmp.v1.x, Tmp.v1.y, 3, rand, 11, 0.7, false);
+        chanceSpark(Tmp.v1.x, Tmp.v1.y, this.team, 3, rand, 11, 0.7, false);
       } else {
         Sounds.plasmaboom.at(this.x, this.y);
         spark.at(Tmp.v1.x, Tmp.v1.y, this.rotation - 180);
@@ -210,7 +209,7 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
       let rot = this.rotation - 180 + Mathf.range(35);
       Tmp.v2.trns(rot, aura.lightLength).add(this.x, this.y);
 
-      this.chanceSpark(Tmp.v2.x, Tmp.v2.y, 6, rot, 13 + Math.random(), 0.3, true);
+      chanceSpark(Tmp.v2.x, Tmp.v2.y, this.team, 6, rot, 13 + Math.random(), 0.3, true);
     }
   },
   draw(){

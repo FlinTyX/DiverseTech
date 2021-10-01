@@ -114,21 +114,13 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
   inaccuracy: 2,
   rotateSpeed: 2.5,
   shootType: orb,
-  powerUse: 0.1,
+  powerUse: 13.95,
   boostMultiplier: 0.2,
   shootSound: Sounds.shotgun,
   shootLength: 15
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
-chanceSpark(x, y, damage, rotation, length, chance, shake){
-    if(Mathf.chanceDelta(chance)){
-      if(shake) Effect.shake(3, 8, x, y);
-      Sounds.spark.at(x, y, 0, Math.random()/2);
-    }
-
-    Lightning.create(this.team, Pal.lancerLaser,damage, x, y, rotation, length);
-  },
   onDestroyed(){
     this.super$onDestroyed();
 

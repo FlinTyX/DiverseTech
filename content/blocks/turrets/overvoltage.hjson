@@ -9,7 +9,9 @@ targetGround: true
 targetAir: true
 
 requirements: [
-  copper/1
+  thorium/440
+  silicon/590
+  nitinol/525
 ]
 
 category: turret
