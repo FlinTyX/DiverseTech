@@ -158,13 +158,13 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
   },
   updateTile(){
     this.super$updateTile();
-    this.rot >= 360 - Time.delta * this.rotBoost * this.power.status ? this.rot = 0 : this.rot += Time.delta * this.rotBoost * this.power.status;
+    this.rot >= 360 - Time.delta * this.rotBoost ? this.rot = 0 : this.rot += Time.delta * this.rotBoost;
 
     this.trX = this.x + Angles.trnsx(this.rotation, (this.block.shootLength + 2) - this.recoil);
     this.trY = this.y + Angles.trnsy(this.rotation, (this.block.shootLength + 2) - this.recoil);
-    this.length = Mathf.lerpDelta(this.length, this.power.status > 0.99 ? this.isShooting() ? 20 : 24.5 : 20, 0.1);
+    this.length = Mathf.lerpDelta(this.length, this.power.status > 0.2 ? this.isShooting() ? 20 : 24.5 : 20, 0.1);
 
-    if(this.isShooting() && this.power.status > 0.99){
+    if(this.isShooting() && this.power.status > 0.2){
 
       this.length = Mathf.lerpDelta(this.length, 20, 0.1);
       this.rotBoost = Mathf.lerpDelta(this.rotBoost, 4.5, 0.15);
@@ -173,7 +173,7 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
       if(this.rotBoost > 0.1) this.rotBoost = Mathf.lerpDelta(this.rotBoost, 0, 0.1);
     }
 
-    if(this.power.status < 0.99 || Mathf.chanceDelta(0.4)) return;
+    if(this.power.status < 0.2 || Mathf.chanceDelta(0.4)) return;
     
     let rand = this.rotation - 180 + Mathf.range(35);
     Tmp.v1.trns(rand, aura.lightLength).add(this.x, this.y);
@@ -214,13 +214,13 @@ aura.buildType = () => extend(PowerTurret.PowerTurretBuild, aura, {
   },
   draw(){
       this.super$draw();
-      Draw.z(Layer.turret + 1);
 
       for(let i = 0; i < 7; i++){
           let rot = this.rot + ((360 / 7) * i);
           let x = this.trX + Angles.trnsx(rot, this.length);
           let y = this.trY + Angles.trnsy(rot, this.length);
 
+          Draw.z(Layer.turret + 1);
           Draw.rect(aura.spinnerRegion, x, y, rot + 90);
           Draw.z(Layer.turret + 0.8);
           Drawf.shadow(aura.spinnerRegion, x - 7, y - 7, rot + 90);
