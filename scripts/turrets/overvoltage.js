@@ -40,6 +40,15 @@ const spark = new Effect(20, e => {
   });
 });
 
+const chanceSpark = (x, y, team, damage, rotation, length, chance, shake) => {
+  if(Mathf.chanceDelta(chance)){
+    if(shake) Effect.shake(3, 8, x, y);
+    Sounds.spark.at(x, y, 0, Math.random()/2);
+  }
+
+  Lightning.create(team, Pal.lancerLaser,damage, x, y, rotation, length);
+};
+
 const orb = extend(BasicBulletType, {
   damage: 350,
   speed: 1.1,
@@ -89,7 +98,7 @@ const orb = extend(BasicBulletType, {
     Effect.shake(8, 15, b.x, b.y);
 
     for(let i = 0; i < 15; i++){
-      if(b.owner != null) b.owner.block.buildType.get().chanceSpark(b.x, b.y, 5, Math.random() * 360, 12.5 + (Math.random() * 3), 0.05, false);
+      chanceSpark(b.x, b.y, b.team, 5, Math.random() * 360, 12.5 + (Math.random() * 3), 0.05, false);
     }
   }
 
@@ -112,15 +121,13 @@ const overvoltage = extend(PowerTurret, "overvoltage", {
 });
 
 overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, {
-  chanceSpark(x, y, damage, rotation, length, chance, shake){
-    Time.run(Math.random() * 32, () => {
-      if(Mathf.chanceDelta(chance)){
-        if(shake) Effect.shake(3, 8, x, y);
-        Sounds.spark.at(x, y, 0, Math.random()/2);
-      }
+chanceSpark(x, y, damage, rotation, length, chance, shake){
+    if(Mathf.chanceDelta(chance)){
+      if(shake) Effect.shake(3, 8, x, y);
+      Sounds.spark.at(x, y, 0, Math.random()/2);
+    }
 
-      Lightning.create(this.team, Pal.lancerLaser,damage, x, y, rotation, length);
-    });
+    Lightning.create(this.team, Pal.lancerLaser,damage, x, y, rotation, length);
   },
   onDestroyed(){
     this.super$onDestroyed();
@@ -138,7 +145,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
 
     if(Mathf.chanceDelta(0.1)){
       if(this.health > this.maxHealth/5){
-        this.chanceSpark(Tmp.v1.x, Tmp.v1.y, 2, rand, 10, 0.7, false);
+        chanceSpark(Tmp.v1.x, Tmp.v1.y, this.team, 2, rand, 10, 0.7, false);
       } else {
         Sounds.plasmaboom.at(this.x, this.y);
         spark.at(Tmp.v1.x, Tmp.v1.y, this.rotation - 180);
@@ -151,7 +158,7 @@ overvoltage.buildType = () => extend(PowerTurret.PowerTurretBuild, overvoltage, 
       let rot = this.rotation - 180 + Mathf.range(35);
       Tmp.v2.trns(rot, overvoltage.shootLength).add(this.x, this.y);
 
-      this.chanceSpark(Tmp.v2.x, Tmp.v2.y, 6, rot, 13 + Math.random(), 0.3, true);
+      chanceSpark(Tmp.v2.x, Tmp.v2.y, this.team, 6, rot, 13 + Math.random(), 0.3, true);
     }
   },
 });
