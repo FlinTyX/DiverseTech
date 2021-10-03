@@ -1,3 +1,9 @@
+const tFx = new Effect(40, e => {
+  Draw.color(Pal.lancerLaser);
+  Lines.stroke(1 + e.fout() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 8);
+});
+
 const deathEffect = new Effect(30, e => {
   Draw.color(Pal.lancerLaser);
   e.scaled(20, i => {
