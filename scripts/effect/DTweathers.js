@@ -46,7 +46,7 @@ const stormLightning = new Effect(35, e => {
 });
 
 const storm = extend(ParticleWeather, "storm", {
-    particleRegion: Core.atlas.find("particle"),
+    particleRegion: "particle",
     xspeed: -8,
     yspeed: -11,
     color: Color.valueOf("a1b1d0"),
@@ -69,58 +69,12 @@ const storm = extend(ParticleWeather, "storm", {
     
     splashes: [],
 
-    generateThunder(obj){
-        let x = Vars.player.x, y = Vars.player.y;
-        let lines = [];
-
-        const delay = 1.69 + Math.random();
-        const radius = 15 * 17.6;
-        const spacing = 10;
-        const amount = Math.floor(radius / spacing);
-
-        const width = 7;
-        const seg2 = width / amount;
-
-        !obj ? null : Object.assign(obj, this);
-
-        cloud.at(x - 22, y + (radius - amount));
-
-        for(let i = 0; i < amount; i++){
-
-            let delta = (delay * i) - i;
-            let curW = width - seg2 - (seg2 * i);
-            let lastW = curW + seg2;
-
-            Time.runTask(delta, () => {
-                if(lines.length < amount + 1){
-                    lines.push(new Vec2(x + Mathf.range(amount / 2), y + (radius - amount) - (spacing * lines.length)));
-                }
-
-                if(lines.length == amount){
-                    print("H");
-                }
-                
-                if(lines.length > 1 && i > 1){
-                    thunder.at(x, y, 0, {
-                        delta: (delay * amount) - delta,
-                        curW: curW,
-                        lastW: lastW,
-                        current: lines[lines.length - 1],
-                        last: lines[lines.length - 2]
-                    });
-                }
-            });
-        }
-    },
     load(){
         this.super$load();
 
         for(let i = 0; i < 12; i++){
             this.splashes[i] = Core.atlas.find("splashes" + i);
         }
-    },
-    init(){
-        this.super$init();
     },
     drawOver(state){
         if(Mathf.chanceDelta(0.005) && !Vars.state.isPaused()){
