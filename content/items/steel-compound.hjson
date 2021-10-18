@@ -1,5 +1,9 @@
-name: Steel Compound
 color: 4c523d
-cost: 2
+cost: 1
 flammability: 0.2
-research: nickel
+research: {
+    parent: nitinol
+    objectives: [
+        steel-compound-mixer
+    ]
+}

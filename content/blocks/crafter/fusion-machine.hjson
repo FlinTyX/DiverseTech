@@ -1,6 +1,3 @@
-localizedName: Fusion Machine
-description: Fuses Nitinol and Steel Compound to make a reinforced alloy.
-
 update: true
 solid: true
 health: 645
@@ -10,8 +7,6 @@ hasPower: true
 hasLiquids: false
 craftTime: 110
 itemCapacity: 8
-ambientSound: machine
-ambientSoundVolume: 0.7
 
 consumes: {
   power: 3
@@ -26,6 +21,7 @@ consumes: {
 requirements: [
   nickel/200
   copper/322
+  graphite/70
   silicon/105
 ]
 

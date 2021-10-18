@@ -1,0 +1,18 @@
+size: 2
+hasItems: true
+
+range: 160
+reloadTime: 20
+ammoUseEffect: casing1
+health: 276
+rotateSpeed: 10.2
+restitution: 0.028
+
+category: turret
+requirements: [
+    copper/180
+    lead/70
+    graphite/50
+]
+
+research: photon

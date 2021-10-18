@@ -1,5 +1,8 @@
-name: Hyper Alloy
-description: An compressed extremely strong and resistant alloy.
 color: 706f74
-cost: 5
-research: nitinol
+cost: 1.5
+research: {
+    parent: steel-compound
+    produce: [
+        steel-compound
+    ]
+}

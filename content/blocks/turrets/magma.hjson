@@ -1,25 +1,14 @@
-localizedName: Magma
-description: Fires 3 cool bullets that will follow the enemy in a cool way. Very op.
 size: 4
 hasItems: true
 hasPower: false
 hasLiquids: true
-health: 2300
+health: 1800
 update: true
 solid: true
 targetGround: true
 targetAir: true
 maxAmmo: 30
 ammoPerShot: 10
-
-consumes: {
-  liquid: {
-    liquid: water
-    amount: 0.6
-    booster: false
-    optional: false
-  }
-}
 
 requirements: [
   nitinol/560
@@ -30,4 +19,9 @@ requirements: [
 ]
 
 category: turret
-research: mist
+research: {
+  parent: mist
+  objectives: [
+    ripple
+  ]
+}

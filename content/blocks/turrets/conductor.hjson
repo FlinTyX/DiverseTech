@@ -1,5 +1,3 @@
-localizedName: Conductor
-description: A small turret that shots a mini electric orb, which spawn sparks.
 size: 2
 hasItems: false
 hasPower: true
@@ -11,11 +9,16 @@ targetGround: true
 targetAir: true
 
 requirements: [
-    copper/190
-    lead/190
+    copper/120
+    lead/80
     silicon/35
-    nickel/30
+    nickel/28
 ]
 
 category: turret
-research: start
+research: {
+    parent: neutron
+    objectives: [
+        arc
+    ]
+}

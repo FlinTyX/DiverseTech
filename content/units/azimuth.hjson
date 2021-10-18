@@ -1,0 +1,26 @@
+health: 27000
+targetAir: true
+targetGround: true
+flying: true
+circleTarget: false
+lowAltitude: true
+rotateShooting: true
+
+hitSize: 82
+armor: 12.1
+speed: 0.65
+drag: 0.04
+accel: 0.036
+rotateSpeed: 1.11
+commandLimit: 5
+engineOffset: 31
+engineSize: 6.2
+itemCapacity: 80
+lightRadius: 130
+
+research: {
+  parent: venti
+  objectives: [
+    tetrative-reconstructor
+  ]
+}

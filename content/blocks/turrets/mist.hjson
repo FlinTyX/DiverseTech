@@ -1,10 +1,8 @@
-localizedName: Mist
-description: Freezes the enemy. 
 size: 3
 hasItems: false
 hasPower: true
 hasLiquids: true
-health: 2380
+health: 1710
 targetGround: true
 targetAir: true
 update: true
@@ -14,7 +12,7 @@ powerUse: 9
 consumes: {
   liquid: {
     liquid: cryofluid
-    amount: 1.1
+    amount: 1.15
     booster: false
     optional: true  
   }
@@ -22,10 +20,10 @@ consumes: {
 
 requirements: [
   copper/800
-  metaglass/250
-  nitinol/550
-  silicon/650
+  metaglass/350
+  nitinol/590
+  silicon/560
 ]
 
 category: turret
-research: start
+research: refraction

@@ -1,6 +1,3 @@
-localizedName: Quantum Former
-description: It makes Nickel appear in your conveyor.
-
 update: true
 solid: true
 health: 400
@@ -8,14 +5,13 @@ size: 3
 craftTime: 95
 updateEffect: steam
 updateEffectChance: 0.01
-ambientSound: machine
-ambientSoundVolume: 0.3
+
 hasItems: true
 hasPower: true
 hasLiquids: false
 
 consumes: {
-  power: 1
+  power: 1.2
   items: {
     items: [
       lead/3
@@ -24,9 +20,9 @@ consumes: {
 }
 
 requirements: [
-  copper/285
-  lead/290
-  silicon/30
+  copper/195
+  lead/220
+  graphite/32
 ]
 
 outputItem: nickel/3

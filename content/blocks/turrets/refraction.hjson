@@ -1,0 +1,19 @@
+size: 3
+hasItems: false
+hasPower: true
+hasLiquids: false
+health: 970
+update: true
+solid: true
+targetGround: true
+targetAir: true
+
+requirements: [
+  copper/280
+  lead/155
+  titanium/95
+  nickel/220
+]
+
+category: turret
+research: neutron

@@ -1,0 +1,27 @@
+health: 7900
+targetAir: true
+targetGround: true
+flying: true
+circleTarget: false
+lowAltitude: true
+rotateShooting: true
+
+hitSize: 51
+armor: 5
+range: 135
+speed: 1
+drag: 0.032
+accel: 0.04
+rotateSpeed: 2
+commandLimit: 5
+engineOffset: 20.7
+engineSize: 4.9
+itemCapacity: 65
+lightRadius: 90
+
+research: {
+  parent: caeli
+  objectives: [
+    exponential-reconstructor
+  ]
+}

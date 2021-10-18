@@ -1,0 +1,26 @@
+size: 3
+hasItems: false
+hasPower: true
+hasLiquids: false
+health: 1000
+range: 185
+reloadTime: 225
+update: true
+ammoUseEffect: casing2
+solid: true
+targetGround: true
+targetAir: true
+
+requirements: [
+  copper/380
+  lead/160
+  metaglass/70
+  plastanium/200
+]
+
+consumes: {
+  power: 4.5
+}
+
+category: turret
+research: refraction

@@ -1,7 +1,4 @@
 type: GenericSmelter
-name: Nitinol Smelter
-description: Fuses Nickel and Titanium to create a malleable and resistant alloy.
-
 health: 400
 size: 2
 hasItems: true
@@ -11,8 +8,6 @@ itemCapacity: 6
 
 craftTime: 85
 craftEffect: smeltsmoke
-ambientSound: machine
-ambientSoundVolume: 0.3
 
 consumes: {
   power: 0.9
@@ -27,7 +22,7 @@ consumes: {
 requirements: [
   copper/200
   lead/190
-  graphite/42
+  silicon/42
 ]
 
 outputItem: nitinol/1

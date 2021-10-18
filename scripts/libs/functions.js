@@ -1,3 +1,6 @@
+const uc = n => Vars.content.getByName(ContentType.unit, "diversetech-" + n);
+const ic = n => Vars.content.getByName(ContentType.item, "diversetech-" + n);
+
 function plusRot(rot, n){
     if(rot > 360 && n >= 0){
         rot = n;
@@ -7,18 +10,8 @@ function plusRot(rot, n){
     return rot;
 }
 
-function alphaPlus(alpha, n){
-    if(alpha > 1 + n && n >= 0){
-        alpha = 1;
-    } else if(alpha < 0 - n && n <= 0){
-        alpha = 0;
-    } else {
-        alpha = alpha + n;
-    }
-    return alpha;
-}
-
 module.exports = {
-    plusRot : plusRot,
-    alphaPlus : alphaPlus
+    uc : uc,
+    ic : ic,
+    plusRot : plusRot
 };

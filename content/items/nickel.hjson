@@ -1,5 +1,8 @@
-name: Nickel
-description: Actually bad.
-cost: 2
+cost: 1.1
 color: ffffff
-research: start
+research: {
+    parent: start
+    objectives: [
+        quantum-former
+    ]
+}

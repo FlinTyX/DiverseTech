@@ -1,7 +1,4 @@
 type: GenericCrafter
-name: Steel Compound Mixer
-description: Mixes sand and coal to make Steel Compound.
-
 health: 340
 size: 2
 hasItems: true
@@ -27,9 +24,9 @@ consumes: {
 }
 
 requirements: [
-  copper/210
-  lead/140
-  graphite/90
+  copper/110
+  lead/100
+  graphite/60
 ]
 
 outputItem: steel-compound/1

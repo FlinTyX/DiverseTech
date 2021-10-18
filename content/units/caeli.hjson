@@ -1,0 +1,91 @@
+health: 770
+targetAir: true
+targetGround: true
+flying: true
+circleTarget: false
+lowAltitude: true
+rotateShooting: true
+
+hitSize: 28
+armor: 3.3
+range: 135
+speed: 1.8
+drag: 0.03
+accel: 0.08
+rotateSpeed: 6
+commandLimit: 5
+engineOffset: 12.8
+engineSize: 3
+itemCapacity: 25
+
+weapons: [
+    {
+        name: caeli-launcher
+        mirror: true
+        shootSound: missile
+        shots: 2
+        velocityRnd: 0.4
+        inaccuracy: 6
+        reload: 38
+        rotate: true
+        shake: 1
+
+        x: 10.2
+        y: 3.8
+
+        bullet: {
+            type: MissileBulletType
+            damage: 12.5
+            speed: 3.1
+            lifetime: 60
+            drag: -0.003
+            keepVelocity: false
+            width: 8
+            height: 8
+            homingRange: 45
+            splashDamageRadius: 15
+            splashDamage: 5
+            weaveScale: 3
+            weaveMag: 0.5
+
+            hitEffect: blastExplosion
+            despawnEffect: massiveExplosion
+        }
+    }
+    {
+        name: caeli-gun
+        mirror: false
+        shootSound: artillery
+        shots: 1
+        inaccuracy: 3
+        reload: 48
+        rotate: true
+        shake: 1.5
+
+        x: 0
+        y: -6.5
+
+        bullet: {
+            type: BasicBulletType
+            damage: 17.8
+            speed: 3.5
+            lifetime: 70
+            drag: 0.01
+            keepVelocity: false
+            width: 10
+            height: 12
+            shrinkX: 0.4
+            
+            hitEffect: explosion
+            despawnEffect: blastExplosion
+            smokeEffect: shootSmallSmoke
+        }
+    } 
+]
+
+research: {
+  parent: borealis
+  objectives: [
+    multiplicative-reconstructor
+  ]
+}

@@ -1,7 +1,7 @@
 name: diversetech
-displayName: DiverseTech
-description: the
-author: Flin
-version: 0.1.6
-minGameVersion: 126.2
+displayName: "DiverseTech"
+description: "Innovate & Research new Technologies that will blow up your mind!\n\nThanks to:\nRayanZ22 (translating),\nTheMalaysianDude (Azimuth sprite)"
+author: "Flin"
+version: "0.2"
+minGameVersion: 130
 repo: FlinTyX/DiverseTech

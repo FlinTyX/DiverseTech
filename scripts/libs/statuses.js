@@ -39,3 +39,4 @@ const ice = extend(StatusEffect, "ice", {
 module.exports = {
   ice : ice
 }
+

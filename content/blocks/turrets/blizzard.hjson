@@ -1,0 +1,22 @@
+size: 6
+hasItems: false
+hasPower: true
+hasLiquids: false
+health: 4750
+update: true
+solid: true
+targetGround: true
+targetAir: true
+powerUse: 40
+
+requirements: [
+  copper/3300
+  titanium/1250
+  metaglass/2400
+  silicon/1100
+  phase-fabric/1190
+  nitinol/1190
+]
+
+category: turret
+research: mist

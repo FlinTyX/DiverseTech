@@ -48,7 +48,7 @@ const hitFx = new Effect(30, e => {
   Lines.circle(e.x, e.y, e.finpow() * 20);
 });
 
-const fragB1 = extend(BasicBulletType, {
+let fragB1 = extend(BasicBulletType, {
   damage: 80,
   speed: 4.5,
   lifetime: 80,
@@ -64,26 +64,42 @@ const fragB1 = extend(BasicBulletType, {
   backColor: Color.valueOf("ffc999"),
   shrinkY: 0,
   
+  trailColor: Color.valueOf("ffc999"),
+  trailWidth: 1.8,
+  trailLenght: 16,
+
   //fx
   hitEffect: hitFx,
   despawnEffect: despawnFx,
-  
-  init(b){
-    if(!b)return;
-    b.data = new Trail(15); //length
-  },
-  update(b){
-    this.super$update(b);
-    b.data.update(b.x, b.y);
-  },
-  draw(b){
-    b.data.draw(Color.valueOf("ffc999"), 2); //width
-    this.super$draw(b); //load the bullet after the trail so that the trail appears under it, dingus
-  }
 });
 
-const  bullet1  = extend(BasicBulletType, {
-  damage: 60,
+let fragB2 = extend(BasicBulletType, {
+  damage: 66.2,
+  speed: 4.2,
+  lifetime: 78,
+  height: 23,
+  width: 19,
+  homingPower: 0.2,
+  homingRange: 200,
+  weaveScale: 3,
+  weaveMag: 3,
+  lightning: 3.5,
+  lightningLenght: 10,
+  sprite: "diversetech-arrow",
+  backColor: Color.valueOf("ffc999"),
+  shrinkY: 0,
+  
+  trailColor: Color.valueOf("ffc999"),
+  trailWidth: 2,
+  trailLenght: 14.5,
+
+  //fx
+  hitEffect: hitFx,
+  despawnEffect: despawnFx,
+});
+
+let bullet1  = extend(BasicBulletType, {
+  damage: 80,
   speed: 7,
   lifetime: 125,
   drag: 0.04,
@@ -102,6 +118,7 @@ const  bullet1  = extend(BasicBulletType, {
   shrinkY: 0,
   sprite: "diversetech-smallArrow",
   backColor: Color.valueOf("ffc999"),
+  ejectEffect: Fx.casing2,
   
   fragVelocityMin : 0.7,
   
@@ -110,25 +127,56 @@ const  bullet1  = extend(BasicBulletType, {
   fragBullet: fragB1
 });
 
-const turret = extend(ItemTurret, "magma", {
+let bullet2 = extend(BasicBulletType, {
+  damage: 66.2,
+  speed: 6.8,
+  lifetime: 123,
+  drag: 0.04,
+  height: 18,
+  width: 18,
+  collidesGround: true,
+  collides: true,
+  weaveScale: 3,
+  weaveMag: 3,
+  lightning: 3,
+  lightningLenght: 8,
+  trailEffect: Fx.artilleryTrail,
+  trailChance: 5,
+  fragBullets: 1,
+  fragCone: 80,
+  shrinkY: 0,
+  sprite: "diversetech-smallArrow",
+  backColor: Color.valueOf("ffc999"),
+  ejectEffect: Fx.casing2,
+  
+  fragVelocityMin : 0.7,
+  
+  //fx
+  shootEffect: shootFx,
+  fragBullet: fragB1
+});
+
+const magma = extend(ItemTurret, "magma", {
   shots: 3,
-  range: 290,
-  reloadTime: 160,
-  shootShake: 5,
-  recoilAmount: 2,
-  shootCone: 10,
+  range: 240,
+  reloadTime: 185,
+  shootShake: 6,
+  recoilAmount: 3,
+  shootCone: 20,
   spread: 30,
   inaccuracy: 15,
   rotateSpeed: 3,
-  coolantMultiplier: 0.8,
+  coolantMultiplier: 0.2,
+  coolantUsage: 2,
   shootType: bullet1,
   
   init(){
     this.ammo(
+      Vars.content.getByName(ContentType.item, "diversetech-nitinol"), bullet2,
       Vars.content.getByName(ContentType.item, "diversetech-hyper-alloy"), bullet1
     );
     this.super$init();
   }
 });
 
-turret.buildType = () => extend(ItemTurret.ItemTurretBuild, turret, {});
+magma.buildType = () => extend(ItemTurret.ItemTurretBuild, magma, {});

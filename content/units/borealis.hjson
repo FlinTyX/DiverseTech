@@ -1,0 +1,91 @@
+type: flying
+health: 375
+
+targetAir: true
+targetGround: true
+flying: true
+circleTarget: false
+lowAltitude: true
+rotateShooting: true
+
+hitSize: 20
+armor: 2.1
+range: 140
+speed: 2
+drag: 0.03
+accel: 0.08
+rotateSpeed: 8
+commandLimit: 4
+engineOffset: 9
+engineSize: 2.8
+itemCapacity: 20
+
+weapons: [
+    {
+        name: borealis-launcher
+        mirror: true
+        shootSound: missile
+        shots: 1
+        velocityRnd: 0.3
+        inaccuracy: 6
+        reload: 32
+        rotate: true
+
+        x: 6
+        y: 0
+
+        bullet: {
+            type: MissileBulletType
+            damage: 11
+            speed: 3
+            lifetime: 55
+            drag: -0.0025
+            keepVelocity: false
+            width: 7
+            height: 7
+            homingRange: 40
+            splashDamageRadius: 13
+            splashDamage: 5
+            weaveScale: 2
+            weaveMag: 0.5
+
+            hitEffect: blastExplosion
+            despawnEffect: blastExplosion
+        }
+    }
+    {
+        name: borealis-gun
+        mirror: false
+        shootSound: artillery
+        shots: 1
+        inaccuracy: 2
+        reload: 45
+        rotate: true
+
+        x: 0
+        y: -3.6
+
+        bullet: {
+            type: BasicBulletType
+            damage: 16.5
+            speed: 3.6
+            lifetime: 65
+            drag: 0.01
+            keepVelocity: false
+            width: 8
+            height: 10
+            shrinkX: 0.5
+            
+            hitEffect: explosion
+            despawnEffect: explosion
+            smokeEffect: shootSmallSmoke
+        }
+    } 
+]
+
+research: {
+  parent: veni
+  objectives: [
+    additive-reconstructor
+  ]
+}

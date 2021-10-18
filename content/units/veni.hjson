@@ -1,0 +1,61 @@
+type: flying
+health: 170
+targetAir: true
+targetGround: true
+flying: true
+circleTarget: false
+lowAltitude: true
+rotateShooting: true
+
+hitSize: 15.5
+armor: 2
+range: 125
+speed: 1.75
+drag: 0.028
+accel: 0.1
+rotateSpeed: 9
+commandLimit: 4
+engineOffset: 7
+engineSize: 2
+itemCapacity: 15
+
+weapons: [
+  {
+    name: veni-weapon
+    mirror: true
+    shootSound: missile
+    shots: 1
+    velocityRnd: 0.33
+    inaccuracy: 5
+    reload: 25
+    rotate: true
+
+    x: 3.7
+    y: 2.5
+
+    bullet: {
+        type: MissileBulletType
+        damage: 8.4
+        speed: 2.65
+        lifetime: 50
+        drag: -0.0025
+        keepVelocity: false
+        width: 6
+        height: 6
+        homingRange: 35
+        splashDamageRadius: 15
+        splashDamage: 3
+        weaveScale: 2
+        weaveMag: 0.5
+
+        hitEffect: blastExplosion
+        despawnEffect: blastExplosion
+    }
+  }
+]
+research: {
+  parent: start
+  objectives: [
+    air-factory
+  ]
+}

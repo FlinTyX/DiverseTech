@@ -1,11 +1,10 @@
 ![Logo](logo.png)
 
 ## The Mod:
-Innovate.
-Research new innovative and interesting technologies that will help you to survive more waves and will make you feel excited to research more.
+Innovate & Research new Technologies that will blow up your mind!
 
 ## v0.2:
-When? Soon.
+A smaller update that took some months... But don't worry, this is just the beginning of an entire project that won't be so small because uh, there is a Trello full of amazing ideas that are coming in the next updates! Thank you so much for playing this mod. Don't forget to give it a star here in GitHub!
 
 ## The Future:
 ### Thematic Updates:

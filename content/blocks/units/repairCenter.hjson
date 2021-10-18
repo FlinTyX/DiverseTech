@@ -1,0 +1,30 @@
+size: 5
+hasItems: true
+hasPower: true
+hasLiquids: true
+health: 2250
+update: true
+solid: true
+
+requirements: [
+  titanium/1080
+  nitinol/890
+  silicon/2590
+]
+
+consumes: {
+    power: 8.5
+    liquid: {
+        liquid: cryofluid
+        amount: 1.8
+        optional: true
+    }
+}
+
+category: effect
+research: {
+  parent: steel-compound-mixer
+  objectives: [
+    repair-turret
+  ]
+}
