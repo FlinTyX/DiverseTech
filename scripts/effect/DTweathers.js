@@ -77,10 +77,6 @@ const storm = extend(ParticleWeather, "storm", {
         }
     },
     drawOver(state){
-        if(Mathf.chanceDelta(0.005) && !Vars.state.isPaused()){
-            this.generateThunder({});
-        }
-
         this.drawRain(10, 40, 8, 10, 1000, state.intensity, 0.85, this.rainColor);
 
         if(Vars.state.isPlaying() && Mathf.chanceDelta(0.02 * state.intensity / 2)){

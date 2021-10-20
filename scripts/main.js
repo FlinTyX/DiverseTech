@@ -67,11 +67,11 @@ if(Core.settings.getBool("diversetech-randomDialogs")){
   function showRandomDialog(){
     if(!Mathf.chance(0.02)){
       if(shutUp){
-        let rand = "dtui.load-dialog" + Math.round(Math.random() * 9).toString();
+        const rand = Math.round(Math.random() * 9).toString();
         
         showOkTextRegion(
-          Core.bundle.get(rand + ".title"),
-          Core.bundle.get(rand + ".text"),
+          Core.bundle.get("dtui.load-dialog" + rand + ".title"),
+          Core.bundle.get("dtui.load-dialog" + rand + ".text"),
           Core.atlas.find("diversetech-uicon" + rand),
           cons(() => {
             shutUp = true;
