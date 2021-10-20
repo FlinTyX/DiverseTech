@@ -199,7 +199,7 @@ newTesla("tesla-markg2", {
         Items.copper, 5820,
         Items.lead, 5050,
         Items.silicon, 5880,
-        Items.titanium, 4680,
+        Items.titanium, 4880,
     ),
     research: "diversetech-tesla-markg1",
 
@@ -221,9 +221,9 @@ newTesla("tesla-markp2", {
 
     requirements: ItemStack.with(
         Items.copper, 600,
-        Items.lead, 550,
-        Items.silicon, 560,
-        Items.plastanium, 380
+        Items.lead, 580,
+        Items.silicon, 860,
+        Items.plastanium, 395
     ),
     nodeRequirements: ItemStack.with(
         Items.copper, 6300,
@@ -247,14 +247,14 @@ newTesla("tesla-tower", {
         Items.lead, 2880,
         Items.silicon, 2900,
         Items.titanium, 3480,
-        ic("hyper-alloy"), 1310,
-        Items.phaseFabric, 940
+        Items.plastanium, 2710,
+        Items.phaseFabric, 1940
     ),
     nodeRequirements: ItemStack.with(
         Items.lead, 28880,
         Items.silicon, 32200,
         Items.titanium, 23400,
-        ic("hyper-alloy"), 15610,
+        Items.plastanium, 20610,
         Items.phaseFabric, 19900
     )
 });
