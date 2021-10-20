@@ -1,5 +1,5 @@
-let {ic} = require("libs/functions");
-let ams = loadSound("sparks-ambient");
+const {ic} = require("libs/functions");
+const ams = loadSound("sparks-ambient");
 
 function chargeEffect(range, colorFrom, colorTo){
     return new Effect(range * 2, e => {
@@ -10,15 +10,7 @@ function chargeEffect(range, colorFrom, colorTo){
     });
 };
 
-let t1 = new Effect(95, e => {
-    let rad = 96/2;
-    Draw.z(Layer.bullet + 10);
-    Lines.stroke(e.fout() * 4);
-    Draw.color(Pal.lancerLaser, Color.purple, e.fin());
-    Lines.circle(e.x, e.y, e.fin() * rad);
-});
-
-let t4 = new Effect(120, e => {
+const t4 = new Effect(120, e => {
     let rad = 15 * 6;
     Draw.z(Layer.bullet + 10);
     Lines.stroke(e.fout() * 4);

@@ -63,16 +63,16 @@ const newDistributor = (name, obj) => {
 
         research: "diversetech-steel-compound-mixer",
         nodeRequirements: ItemStack.with(
-            Items.phaseFabric, 720,
-            Items.silicon, 730,
-            ic("nickel"), 2190,
-            Items.lead, 3200
+            Items.phaseFabric, 920,
+            Items.silicon, 2030,
+            Items.copper, 4000,
+            Items.lead, 3400
         ),
         requirements: ItemStack.with(
             Items.phaseFabric, 75,
-            Items.silicon, 45,
-            ic("nickel"), 140,
-            Items.lead, 140,
+            Items.silicon, 60,
+            Items.copper, 70,
+            Items.lead, 100,
         ),
 
         range: 8 * 7,
@@ -234,13 +234,15 @@ newDistributor("hyper-distributor", {
 
     research: "diversetech-mega-distributor",
     nodeRequirements: ItemStack.with(
-        Items.surgeAlloy, 1380,
-        Items.phaseFabric, 1040,
-        Items.silicon, 2500
+        Items.surgeAlloy, 2380,
+        Items.phaseFabric, 2040,
+        Items.silicon, 4800,
+        Items.lead, 4000
     ),
     requirements: ItemStack.with(
         Items.surgeAlloy, 95,
         Items.phaseFabric, 75,
+        Items.lead, 80,
         Items.silicon, 95,
     )
 });
