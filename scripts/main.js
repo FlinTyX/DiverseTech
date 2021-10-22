@@ -25,6 +25,7 @@ const scripts = [
 scripts.forEach(e => require(e));
 print("0.2 is here!");
 
+if(Vars.headless) return;
 const {showOkTextRegion, showOkTextAnim} = require("libs/DTui");
 
 //setting

@@ -59,9 +59,6 @@ function newOrbitatingBullet(obj){
         orbRadius: 9.7,
         orbMag: 3.2,
 
-        range2(b){
-            return Math.max(this.speed * b.time * (1 - this.drag), this.maxRange);
-        },
         init(b){
             if(!b) return;
             b.data = [];
