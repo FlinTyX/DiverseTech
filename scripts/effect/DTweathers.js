@@ -21,8 +21,7 @@ function hasWeather(){
 function addWeather(){
     for(let i = 0; i < arguments.length; i++){
         if(Vars.state.isMenu() || hasWeather(arguments[i])) return;
-        let bool = arguments[i + 1];
-        if(typeof bool == "boolean" || bool == undefined ? bool : bool()) Vars.state.rules.weather.add(new Weather.WeatherEntry(arguments[i]));
+        if(arguments[i + 1]) Vars.state.rules.weather.add(new Weather.WeatherEntry(arguments[i]));
     }
 }
 
@@ -89,6 +88,7 @@ const storm = extend(ParticleWeather, "storm", {
         this.drawSplashes(this.splashes, 40, 1100, state.intensity, state.opacity, 18, 0.75, this.rainColor, Liquids.water);
     }
 });
+
 storm.attrs.set(Attribute.light, -0.4);
 storm.attrs.set(Attribute.water, 0.5);
 

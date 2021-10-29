@@ -1,13 +1,4 @@
-let craftFx = new Effect(38, e => {
-  if(e.time - Time.delta == 0 && !Vars.state.isPaused()){
-
-    let r = Math.random()/1.5;
-
-    Effect.shake(3.3, 7, e.x, e.y);
-    Fx.blastExplosion.at(e.x, e.y);
-    Sounds.bang.at(e.x, e.y, 0, r);
-  }
-
+const craftFx = new Effect(38, e => {
   for (let i = 0; i < 8; i++){
     Draw.color(i > 4 ? Color.valueOf("f1f1f1") : Color.valueOf("ffffff"));
     Tmp.v1.trns(90 * i, 6.8).add(e.x, e.y);
@@ -49,17 +40,24 @@ fusionMachine.buildType = () => extend(GenericCrafter.GenericCrafterBuild, fusio
   warm2: 0,
 
   validl(){
-    return this.progress >= 0.972 && this.power.status > 0;
+    return !Vars.state.isPaused() && this.power.status > 0;
   },
   updateTile(){
     this.super$updateTile();
-    if(Vars.state.isPaused()) return;
 
     if(this.validl()){
-      this.warm2 = 1.2;
-    } else {
-      this.warm2 = Mathf.lerpDelta(this.warm2, 0, 0.029);
+      this.warm2 = Mathf.lerpDelta(this.warm2, 0, 0.0285);
     }
+  },
+  craft(){
+    this.super$craft();
+    this.warm2 = 1.2;
+
+    const r = Math.random()/1.5;
+
+    Effect.shake(3.3, 7, this.x, this.y);
+    Fx.blastExplosion.at(this.x, this.y);
+    Sounds.bang.at(this.x, this.y, 0, r);
   },
   draw(){
     this.super$draw();

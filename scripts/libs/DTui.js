@@ -1,4 +1,4 @@
-function showOkTextRegion(title, text, region, cons){
+function showOkTextRegion(title, text, region, runnable){
     let dialog = new Dialog();
     let table = new Table();
 
@@ -15,14 +15,14 @@ function showOkTextRegion(title, text, region, cons){
     table.button("@ok", () => {
   
         dialog.hide();
-        cons.get(this);
+        runnable();
   
     }).size(200, 54).pad(4).padTop(6).align(Align.center);
     dialog.add(table);
     dialog.show();
 };
 
-function showOkTextAnim(title, text, frames, cons){
+function showOkTextAnim(title, text, frames, runnable){
     let dialog = new Dialog();
     let table = new Table();
     
@@ -54,7 +54,7 @@ function showOkTextAnim(title, text, frames, cons){
     table.button("@ok", () => {
   
         dialog.hide();
-        cons.get(this);
+        runnable();
   
     }).size(200, 54).pad(4).padTop(6).align(Align.center);
     dialog.add(table);

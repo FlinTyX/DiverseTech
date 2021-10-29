@@ -45,7 +45,7 @@ Events.on(ClientLoadEvent, () => {
         Core.bundle.get("dtui.settings-warning.title"),
         Core.bundle.get("dtui.settings-warning.text"),
         Icon.warning,
-        cons(() => {})
+        () => {}
       )
     }
   );
@@ -74,10 +74,10 @@ if(Core.settings.getBool("diversetech-randomDialogs")){
           Core.bundle.get("dtui.load-dialog" + rand + ".title"),
           Core.bundle.get("dtui.load-dialog" + rand + ".text"),
           Core.atlas.find("diversetech-uicon" + rand),
-          cons(() => {
+          () => {
             shutUp = true;
             showing = false;
-          })
+          }
         );
 
       } else if(Mathf.chanceDelta(0.5)){
@@ -86,10 +86,10 @@ if(Core.settings.getBool("diversetech-randomDialogs")){
           Core.bundle.get("dtui.load-basedialog.title"),
           Core.bundle.get("dtui.load-basedialog.text"),
           Core.atlas.find("diversetech-uicon"),
-          cons(() => {
+          () => {
             shutUp = true;
             showing = false;
-          })
+          }
         );
 
       }
@@ -101,11 +101,11 @@ if(Core.settings.getBool("diversetech-randomDialogs")){
         Core.bundle.get("dtui.load-rick.title"),
         Core.bundle.get("dtui.load-rick.text"),
         frames,
-        cons(() => {
+        () => {
           shutUp = true;
           showing = false;
           nggyu.stop();
-        })
+        }
       );
     }
   };
@@ -119,7 +119,7 @@ if(Core.settings.getBool("diversetech-randomDialogs")){
   Events.run(Trigger.update, () => {
     if(!Vars.state.isPlaying()) return;
 
-    if(!showing && Mathf.chanceDelta(0.0004/60)){
+    if(!showing && Mathf.chanceDelta(0.0001/60)){
       showing = true;
       showRandomDialog();
     }

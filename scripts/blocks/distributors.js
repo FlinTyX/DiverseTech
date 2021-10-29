@@ -1,5 +1,3 @@
-const {ic} = require("libs/functions");
-
 const valid = (block) => {
     return block.consumes.any() && !block.drillTime && (
     
@@ -10,7 +8,7 @@ const valid = (block) => {
     );
 }
 
-const getConsume = (build, cons) => {
+const getConsume = (build, runnable) => {
     const consumes = build.block.consumes;
 
     if(consumes.has(ConsumeType.item)){
@@ -20,29 +18,29 @@ const getConsume = (build, cons) => {
             if(consumes.get(ConsumeType.item).filter != null){
                 for(let i = 0; i < Vars.content.items().size; i++){
                     if(consumes.get(ConsumeType.item).filter.get(Vars.content.items().get(i))){
-                        cons.get(new ItemStack(Vars.content.items().get(i), 1))
+                        runnable(new ItemStack(Vars.content.items().get(i), 1))
                     };  
                 }
             } else {
-                cons.get(consumes.get(ConsumeType.item).items[0]);
+                runnable(consumes.get(ConsumeType.item).items[0]);
             }
             return;
         }
 
         //turrets
         if(build.block.ammo != null){
-            cons.get(this);
+            runnable();
             return;
         }
 
         //unit factories
         if(build.block.plans != null){
-            consumes.get(ConsumeType.item).items.get(build).forEach(i => cons.get(i));
+            consumes.get(ConsumeType.item).items.get(build).forEach(i => runnable(i));
             return;
         }
 
         //factories
-        consumes.get(ConsumeType.item).items.forEach(i => cons.get(i));
+        consumes.get(ConsumeType.item).items.forEach(i => runnable(i));
     }
 }
 
@@ -127,9 +125,9 @@ const newDistributor = (name, obj) => {
                 } else {
                     let stack = [];
 
-                    getConsume(build, cons(i => {
+                    getConsume(build, i => {
                         if(i.item != null) stack.push(i.item);
-                    }));
+                    });
                     
                     for(let s = 0; s < stack.length; s++){
                         if(this.items.has(stack[s])){
@@ -200,9 +198,9 @@ const newDistributor = (name, obj) => {
                 }
 
                 //items
-                getConsume(build, cons(stack => {
+                getConsume(build, stack => {
                     this.transferItem(build, stack);
-                }));
+                });
             });
         },
         display(table){
