@@ -72,7 +72,7 @@ const storm = extend(ParticleWeather, "storm", {
         this.super$load();
 
         for(let i = 0; i < 12; i++){
-            this.splashes[i] = Core.atlas.find("splashes" + i);
+            this.splashes[i] = Core.atlas.find("splash-" + i);
         }
     },
     drawOver(state){
