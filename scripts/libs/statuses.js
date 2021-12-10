@@ -27,8 +27,8 @@ const ice = extend(StatusEffect, "ice", {
     this.super$load();
     this.region = Core.atlas.find(this.name);
   },
-  icons(icon){
-    return this.reagion;
+  icons(){
+    return this.region;
   },
   isHidden(){
     return false;
